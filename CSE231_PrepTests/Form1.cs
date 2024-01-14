@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,10 +31,27 @@ namespace CSE231_PrepTests
         Question curQ = null;
 
         //Info Vault
-
+        TableLayoutPanel testTableInfoStorage = new TableLayoutPanel();
         public Form1()
         {
             InitializeComponent();
+
+            //Vault Set
+            testTableInfoStorage.AutoSize = tableLayoutPanel2.AutoSize;
+            testTableInfoStorage.Font = tableLayoutPanel2.Font;
+            testTableInfoStorage.ForeColor = tableLayoutPanel2.ForeColor;
+            testTableInfoStorage.Location = tableLayoutPanel2.Location;
+            testTableInfoStorage.Name = tableLayoutPanel2.Name;
+            testTableInfoStorage.Size = tableLayoutPanel2.Size;
+            testTableInfoStorage.ColumnCount = tableLayoutPanel2.ColumnCount;
+            testTableInfoStorage.RowCount = tableLayoutPanel2.RowCount;
+            testTableInfoStorage.ColumnStyles.Clear();
+            testTableInfoStorage.RowStyles.Clear();
+            testTableInfoStorage.TabIndex = tableLayoutPanel2.TabIndex;
+            foreach (ColumnStyle style in tableLayoutPanel2.ColumnStyles)
+                testTableInfoStorage.ColumnStyles.Add(new ColumnStyle(style.SizeType, style.Width));
+            foreach (RowStyle style in tableLayoutPanel2.RowStyles)
+                testTableInfoStorage.RowStyles.Add(new RowStyle(style.SizeType, style.Height));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -76,7 +95,7 @@ namespace CSE231_PrepTests
         }
         void updateTable()
         {
-            System.Windows.Forms.Button button = new System.Windows.Forms.Button();
+            Button button = new Button();
             button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             button.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.64F);
             button.Name = "button";
@@ -84,21 +103,43 @@ namespace CSE231_PrepTests
             button.TabIndex = 3;
             button.Text = "Start Test"+ (tests.Count - 1).ToString();
             button.UseVisualStyleBackColor = true;
-            System.EventHandler eventHandler = new System.EventHandler(start_Click);
-            //eventHandler.
             button.Click += new System.EventHandler(start_Click);
-            AddItem(tests[tests.Count-1].name, tests[tests.Count-1].numOfQuestions.ToString(), button, "idk.... Good");
+            AddItemTable(tableLayoutPanel2,tests[tests.Count-1].name, tests[tests.Count-1].numOfQuestions.ToString(), button, "idk.... Good");
         }
-        private void AddItem( string name, string numOfQ, System.Windows.Forms.Button button, string progres)
+        private void AddItemTable(TableLayoutPanel table, string name, string numOfQ, Button button, string progres)
         {
-            RowStyle temp = tableLayoutPanel2.RowStyles[tableLayoutPanel2.RowCount - 1];
-            tableLayoutPanel2.RowCount++;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(temp.SizeType, temp.Height));
-            tableLayoutPanel2.Controls.Add(new Label() { Text = name }, 0, tableLayoutPanel2.RowCount - 1);
-            tableLayoutPanel2.Controls.Add(new Label() { Text = numOfQ }, 1, tableLayoutPanel2.RowCount - 1);
-            tableLayoutPanel2.Controls.Add(button, 2, tableLayoutPanel2.RowCount - 1);
-            tableLayoutPanel2.Controls.Add(new Label() { Text = progres }, 2, tableLayoutPanel2.RowCount - 1);
 
+            if (tableLayoutPanel2 == table)
+            {
+                RowStyle temp2 = testTableInfoStorage.RowStyles[testTableInfoStorage.RowCount - 1];
+                testTableInfoStorage.RowCount++;
+                testTableInfoStorage.RowStyles.Add(new RowStyle(temp2.SizeType, temp2.Height));
+                testTableInfoStorage.Controls.Add(new Label() { Text = name }, 0, testTableInfoStorage.RowCount - 1);
+                testTableInfoStorage.Controls.Add(new Label() { Text = numOfQ }, 1, testTableInfoStorage.RowCount - 1);
+                testTableInfoStorage.Controls.Add(CloneButton(button, new System.EventHandler(start_Click)), 2, testTableInfoStorage.RowCount - 1);
+                testTableInfoStorage.Controls.Add(new Label() { Text = progres }, 2, testTableInfoStorage.RowCount - 1);
+            }
+            RowStyle temp = table.RowStyles[table.RowCount - 1];
+            table.RowCount++;
+            table.RowStyles.Add(new RowStyle(temp.SizeType, temp.Height));
+            table.Controls.Add(new Label() { Text = name }, 0, table.RowCount - 1);
+            table.Controls.Add(new Label() { Text = numOfQ }, 1, table.RowCount - 1);
+            table.Controls.Add(button, 2, table.RowCount - 1);
+            table.Controls.Add(new Label() { Text = progres }, 2, table.RowCount - 1);
+        }
+
+        private Button CloneButton(Button org, EventHandler whenClick)
+        {
+            Button tempButton = new Button();
+            tempButton.FlatStyle = org.FlatStyle;
+            tempButton.Font = org.Font;
+            tempButton.Name = org.Name;
+            tempButton.Size = org.Size;
+            tempButton.TabIndex = org.TabIndex;
+            tempButton.Text = org.Text;
+            tempButton.UseVisualStyleBackColor = org.UseVisualStyleBackColor;
+            tempButton.Click += whenClick;
+            return tempButton;
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -259,8 +300,13 @@ namespace CSE231_PrepTests
 
         private void menu_Click(object sender, EventArgs e)
         {
+            Size TempCS = ClientSize;
             this.Controls.Clear();
+            tableLayoutPanel2 = testTableInfoStorage;
+            Controls.Add(tableLayoutPanel2);
             this.InitializeComponent();
+            ClientSize = TempCS;
+
             Controls.Remove(questionText);
             Controls.Remove(checkedListOptions);
             Controls.Remove(prev);
