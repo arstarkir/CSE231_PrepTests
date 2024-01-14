@@ -16,15 +16,20 @@ namespace CSE231_PrepTests
 {
     public partial class Form1 : Form
     {
+        //Question visuals
         Label questionText = new System.Windows.Forms.Label();
         CheckedListBox checkedListOptions = new System.Windows.Forms.CheckedListBox();
         Button prev = new System.Windows.Forms.Button();
         Button next = new System.Windows.Forms.Button();
         Button checkAns = new System.Windows.Forms.Button();
 
+        //Question + Test info
         List<TestInfo> tests = new List<TestInfo>();
         TestInfo curTest = null;
         Question curQ = null;
+
+        //Info Vault
+
         public Form1()
         {
             InitializeComponent();
@@ -86,18 +91,14 @@ namespace CSE231_PrepTests
         }
         private void AddItem( string name, string numOfQ, System.Windows.Forms.Button button, string progres)
         {
-            //get a reference to the previous existent 
             RowStyle temp = tableLayoutPanel2.RowStyles[tableLayoutPanel2.RowCount - 1];
-            //increase panel rows count by one
             tableLayoutPanel2.RowCount++;
-            //add a new RowStyle as a copy of the previous one
             tableLayoutPanel2.RowStyles.Add(new RowStyle(temp.SizeType, temp.Height));
-            //add your three controls
             tableLayoutPanel2.Controls.Add(new Label() { Text = name }, 0, tableLayoutPanel2.RowCount - 1);
             tableLayoutPanel2.Controls.Add(new Label() { Text = numOfQ }, 1, tableLayoutPanel2.RowCount - 1);
-            //tableLayoutPanel2.Controls.Add(new Label() { }, 2, tableLayoutPanel2.RowCount - 1);
             tableLayoutPanel2.Controls.Add(button, 2, tableLayoutPanel2.RowCount - 1);
             tableLayoutPanel2.Controls.Add(new Label() { Text = progres }, 2, tableLayoutPanel2.RowCount - 1);
+
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -113,9 +114,8 @@ namespace CSE231_PrepTests
         }
         void genQ()
         {
+            Size TempCS = ClientSize;
             this.Controls.Clear();
-            tableLayoutPanel2.Enabled = false;
-            button1.Enabled = false;
             // 
             // label1
             // 
@@ -214,6 +214,9 @@ namespace CSE231_PrepTests
             }
             Controls.Add(next);
             this.InitializeComponent();
+            Controls.Remove(button1);
+            Controls.Remove(tableLayoutPanel2);
+            ClientSize = TempCS;
         }
         Question GetUnfinQ(TestInfo test)
         {
@@ -256,7 +259,13 @@ namespace CSE231_PrepTests
 
         private void menu_Click(object sender, EventArgs e)
         {
-
+            this.Controls.Clear();
+            this.InitializeComponent();
+            Controls.Remove(questionText);
+            Controls.Remove(checkedListOptions);
+            Controls.Remove(prev);
+            Controls.Remove(next);
+            Controls.Remove(checkAns);
         }
         private void checkAns_Click(object sender, EventArgs e)
         {
