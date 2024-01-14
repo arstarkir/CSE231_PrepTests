@@ -8,13 +8,14 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
+
 namespace CSE231_PrepTests
 {
     internal class TestInfo
     {
         public string name="Not Found";
         string genInfo;
-        Dictionary<string, string> answers = new Dictionary<string, string>();
+        public Dictionary<int, string> answers = new Dictionary<int, string>();
         public int numOfQuestions;
         public bool wasStarted = false;
         public bool wasFinished = false;
@@ -45,7 +46,7 @@ namespace CSE231_PrepTests
                     ans.RemoveAt(0);
                 for (int j = 0; j < nums.Count; j++)
                 {
-                    answers[nums[j]] = ans[j];
+                    answers[Int32.Parse(nums[j])] = ans[j];
                     numOfQuestions = Int32.Parse(nums[j]);
                 }
                 text.Remove(0, text.IndexOf("\n") + "\n".Length + 1);
@@ -56,6 +57,7 @@ namespace CSE231_PrepTests
             {
                 bool isPartOfMQ = false;
                 string questionText = text.Substring(0, text.IndexOf(numToAns[0]) -3 );
+                int questionNum = Int32.Parse(questionText.Substring(questionText.IndexOf("\n") + "\n".Length, questionText.IndexOf(".")-1));
                 if (questionText.Contains("Figure"))
                 {
                     isPartOfMQ = true;
@@ -111,7 +113,7 @@ namespace CSE231_PrepTests
                             continue;
                     }
                 }
-                questions.Add(new Question(questionText, options, isPartOfMQ));
+                questions.Add(new Question(questionText, options, isPartOfMQ, questionNum));
             }
         }
     }

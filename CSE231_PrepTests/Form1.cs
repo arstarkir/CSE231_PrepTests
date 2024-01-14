@@ -19,6 +19,7 @@ namespace CSE231_PrepTests
         CheckedListBox checkedListOptions = new System.Windows.Forms.CheckedListBox();
         Button prev = new System.Windows.Forms.Button();
         Button next = new System.Windows.Forms.Button();
+        Button checkAns = new System.Windows.Forms.Button();
 
         List<TestInfo> tests = new List<TestInfo>();
         TestInfo curTest = null;
@@ -108,11 +109,11 @@ namespace CSE231_PrepTests
             curTest = tests[Int32.Parse(sender.ToString().Remove(0, sender.ToString().LastIndexOf("t") + "t".Length))];
             tableLayoutPanel2.Hide();
             button1.Hide();
-            genQ(curTest);
+            genQ();
         }
-        void genQ(TestInfo test)
+        void genQ()
         {
-            curQ = GetUnfinQ(test);
+            curQ = GetUnfinQ(curTest);
             // 
             // label1
             // 
@@ -165,17 +166,29 @@ namespace CSE231_PrepTests
             // 
             // button3
             // 
+            checkAns.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            checkAns.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.64F);
+            checkAns.Location = new System.Drawing.Point(159, checkedListOptions.Location.Y + checkedListOptions.Size.Height);
+            checkAns.Name = "button3";
+            checkAns.Size = new System.Drawing.Size(150, 70);
+            checkAns.TabIndex = 5;
+            checkAns.Text = "Check";
+            checkAns.UseVisualStyleBackColor = true;
+            checkAns.Click += new System.EventHandler(checkAns_Click);
+            Controls.Add(checkAns);
+            // 
+            // button4
+            // 
             next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             next.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.64F);
-            next.Location = new System.Drawing.Point(159, checkedListOptions.Location.Y + checkedListOptions.Size.Height);
-            next.Name = "button3";
+            next.Location = new System.Drawing.Point(315, checkedListOptions.Location.Y + checkedListOptions.Size.Height);
+            next.Name = "button4";
             next.Size = new System.Drawing.Size(150, 70);
             next.TabIndex = 5;
             next.Text = "Next";
             next.UseVisualStyleBackColor = true;
             next.Click += new System.EventHandler(next_Click);
             Controls.Add(next);
-
         }
         Question GetUnfinQ(TestInfo test)
         {
@@ -204,6 +217,31 @@ namespace CSE231_PrepTests
         private void next_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkAns_Click(object sender, EventArgs e)
+        {
+            string correctAns = curTest.answers[curQ.questionNum];
+            var numToAns = new Dictionary<int, string> { [0] = "A", [1] = "B", [2] = "C", [3] = "D", [4] = "E" };
+            for (int i = 0; i < curQ.options.Count; i++)
+                if (checkedListOptions.GetItemCheckState(i) == CheckState.Checked)
+                {
+                    foreach (char c in correctAns)
+                    {
+                        if (correctAns == numToAns[i])
+                        {
+                            checkedListOptions.BackColor = Color.Green;
+                        }
+                        else
+                        {
+                            checkedListOptions.BackColor = Color.Red;
+                        }
+                    }
+                }
+            if(checkedListOptions.BackColor == System.Drawing.SystemColors.Control)
+            {
+                checkedListOptions.BackColor = Color.Yellow;
+            }
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)

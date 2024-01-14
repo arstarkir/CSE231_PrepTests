@@ -15,12 +15,14 @@ namespace CSE231_PrepTests
         bool wasStarted = false;
         bool isPartOfMQ = false;
         public string questionText = "No Question Found";
+        public int questionNum = 0;
         public Dictionary<string, bool> options = new Dictionary<string, bool>();
-        public Question(string question, Dictionary<string, bool> options, bool isPartOf = false) 
+        public Question(string question, Dictionary<string, bool> options, bool isPartOf = false,int qNum = 0) 
         {
             questionText = question;
             this.options = options;
             isPartOfMQ = isPartOf;
+            questionNum = qNum;
         }
     }
 }
