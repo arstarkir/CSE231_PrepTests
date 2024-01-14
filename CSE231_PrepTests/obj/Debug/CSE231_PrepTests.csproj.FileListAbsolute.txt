@@ -8,3 +8,13 @@ C:\Users\arsta\source\repos\CSE231_PrepTests\CSE231_PrepTests\bin\Debug\CSE231_P
 C:\Users\arsta\source\repos\CSE231_PrepTests\CSE231_PrepTests\bin\Debug\CSE231_PrepTests.pdb
 C:\Users\arsta\source\repos\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.exe
 C:\Users\arsta\source\repos\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.pdb
+C:\Users\arsta\OneDrive\Документи\GitHub\CSE231_PrepTests\CSE231_PrepTests\bin\Debug\CSE231_PrepTests.exe.config
+C:\Users\arsta\OneDrive\Документи\GitHub\CSE231_PrepTests\CSE231_PrepTests\bin\Debug\CSE231_PrepTests.exe
+C:\Users\arsta\OneDrive\Документи\GitHub\CSE231_PrepTests\CSE231_PrepTests\bin\Debug\CSE231_PrepTests.pdb
+C:\Users\arsta\OneDrive\Документи\GitHub\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.csproj.AssemblyReference.cache
+C:\Users\arsta\OneDrive\Документи\GitHub\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.Form1.resources
+C:\Users\arsta\OneDrive\Документи\GitHub\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.Properties.Resources.resources
+C:\Users\arsta\OneDrive\Документи\GitHub\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.csproj.GenerateResource.cache
+C:\Users\arsta\OneDrive\Документи\GitHub\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.csproj.CoreCompileInputs.cache
+C:\Users\arsta\OneDrive\Документи\GitHub\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.exe
+C:\Users\arsta\OneDrive\Документи\GitHub\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.pdb

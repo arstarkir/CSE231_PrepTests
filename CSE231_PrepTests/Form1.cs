@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CSE231_PrepTests
 {
@@ -78,9 +79,9 @@ namespace CSE231_PrepTests
             button.TabIndex = 3;
             button.Text = "Start Test"+ (tests.Count - 1).ToString();
             button.UseVisualStyleBackColor = true;
-            System.EventHandler eventHandler = new System.EventHandler(button_Click);
+            System.EventHandler eventHandler = new System.EventHandler(start_Click);
             //eventHandler.
-            button.Click += new System.EventHandler(button_Click);
+            button.Click += new System.EventHandler(start_Click);
             AddItem(tests[tests.Count-1].name, tests[tests.Count-1].numOfQuestions.ToString(), button, "idk.... Good");
         }
         private void AddItem( string name, string numOfQ, System.Windows.Forms.Button button, string progres)
@@ -104,19 +105,21 @@ namespace CSE231_PrepTests
 
         }
 
-        private void button_Click(object sender, EventArgs e)
+        private void start_Click(object sender, EventArgs e)
         {
             curTest = tests[Int32.Parse(sender.ToString().Remove(0, sender.ToString().LastIndexOf("t") + "t".Length))];
-            tableLayoutPanel2.Hide();
-            button1.Hide();
+            curQ = GetUnfinQ(curTest);
             genQ();
         }
         void genQ()
         {
-            curQ = GetUnfinQ(curTest);
+            this.Controls.Clear();
+            tableLayoutPanel2.Enabled = false;
+            button1.Enabled = false;
             // 
             // label1
             // 
+            questionText = new Label();
             questionText.AutoSize = true;
             questionText.Location = new System.Drawing.Point(3, 0);
             questionText.Font =  new System.Drawing.Font("Microsoft Sans Serif", 15F);
@@ -131,6 +134,7 @@ namespace CSE231_PrepTests
             // 
             // checkedListBox1
             // 
+            checkedListOptions = new CheckedListBox();
             checkedListOptions.Anchor = System.Windows.Forms.AnchorStyles.Top;
             checkedListOptions.BackColor = System.Drawing.SystemColors.Control;
             checkedListOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
@@ -153,19 +157,30 @@ namespace CSE231_PrepTests
             // 
             // button2
             // 
+            prev = new Button();
             prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             prev.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.64F);
             prev.Location = new System.Drawing.Point(3, checkedListOptions.Location.Y + checkedListOptions.Size.Height);
             prev.Name = "button2";
             prev.Size = new System.Drawing.Size(150, 70);
             prev.TabIndex = 4;
-            prev.Text = "Prev";
             prev.UseVisualStyleBackColor = true;
-            prev.Click += new System.EventHandler(prev_Click);
+            if (curTest.questions.IndexOf(curQ) == 0)
+            {
+                prev.Text = "Menu";
+                prev.Click += new System.EventHandler(menu_Click);
+            }
+            else
+            {
+                prev.Text = "Prev";
+                prev.UseVisualStyleBackColor = true;
+                prev.Click += new System.EventHandler(prev_Click);
+            }
             Controls.Add(prev);
             // 
             // button3
             // 
+            checkAns = new Button();
             checkAns.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             checkAns.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.64F);
             checkAns.Location = new System.Drawing.Point(159, checkedListOptions.Location.Y + checkedListOptions.Size.Height);
@@ -179,16 +194,26 @@ namespace CSE231_PrepTests
             // 
             // button4
             // 
+            next = new Button();
             next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             next.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.64F);
             next.Location = new System.Drawing.Point(315, checkedListOptions.Location.Y + checkedListOptions.Size.Height);
             next.Name = "button4";
             next.Size = new System.Drawing.Size(150, 70);
             next.TabIndex = 5;
-            next.Text = "Next";
             next.UseVisualStyleBackColor = true;
-            next.Click += new System.EventHandler(next_Click);
+            if (curTest.questions.IndexOf(curQ) == curTest.questions.Count - 1)
+            {
+                next.Text = "Menu";
+                next.Click += new System.EventHandler(menu_Click);
+            }
+            else
+            {
+                next.Text = "Next";
+                next.Click += new System.EventHandler(next_Click);
+            }
             Controls.Add(next);
+            this.InitializeComponent();
         }
         Question GetUnfinQ(TestInfo test)
         {
@@ -211,14 +236,28 @@ namespace CSE231_PrepTests
         }
         private void prev_Click(object sender, EventArgs e)
         {
-
+            int curQind = curTest.questions.IndexOf(curQ);
+            if (curQind > 0)
+            {
+                curQ = curTest.questions[curQind - 1];
+                genQ();
+            }
         }
 
         private void next_Click(object sender, EventArgs e)
         {
-
+            int curQind = curTest.questions.IndexOf(curQ);
+            if (curQind < curTest.questions.Count)
+            {
+                curQ = curTest.questions[curQind+1];
+                genQ();
+            }
         }
 
+        private void menu_Click(object sender, EventArgs e)
+        {
+
+        }
         private void checkAns_Click(object sender, EventArgs e)
         {
             string correctAns = curTest.answers[curQ.questionNum];
