@@ -57,7 +57,8 @@ namespace CSE231_PrepTests
             {
                 bool isPartOfMQ = false;
                 string questionText = text.Substring(0, text.IndexOf(numToAns[0]) -3 );
-                int questionNum = Int32.Parse(questionText.Substring(questionText.IndexOf("\n") + "\n".Length, questionText.IndexOf(".")-1));
+                questionText = questionText.Remove(0, questionText.IndexOf("\n"));
+                int questionNum = Int32.Parse(questionText.Substring(questionText.IndexOf("\n") + "\n".Length, questionText.IndexOf(".") - ".".Length));
                 if (questionText.Contains("Figure"))
                 {
                     isPartOfMQ = true;
@@ -71,7 +72,7 @@ namespace CSE231_PrepTests
                     numOfNextQ = (numOfNextQ.Length == 1 ? ("\n0" + numOfNextQ) : "\n" + numOfNextQ);
                     if (j == 5) 
                     {
-                        if((numOfQuestions) != i)
+                        if(numOfQuestions != i)
                         {
                             int a = text.IndexOf("############");
                             int b = text.IndexOf(numOfNextQ);
@@ -99,7 +100,13 @@ namespace CSE231_PrepTests
                     }
                     else
                     {
-                        if (text.IndexOf(numOfNextQ) > text.IndexOf(numToAns[j]) - 1 || (numOfQuestions) == i)
+                        if ((numOfQuestions) == i && text.IndexOf(numToAns[j]) == -1)
+                        {
+                            options[text] = false;
+                            text = "";
+                        }                     
+                        else
+                        if (text.IndexOf(numOfNextQ) > text.IndexOf(numToAns[j]) - 1)
                         {
                             if (text.Substring(0, text.IndexOf(numToAns[j]) - 1) == "")
                             {

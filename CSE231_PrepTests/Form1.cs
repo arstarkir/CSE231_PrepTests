@@ -105,7 +105,6 @@ namespace CSE231_PrepTests
         }
         private void AddItemTable(TableLayoutPanel table, string name, string numOfQ, Button button, string progres)
         {
-
             if (tableLayoutPanel2 == table)
             {
                 RowStyle temp2 = testTableInfoStorage.RowStyles[testTableInfoStorage.RowCount - 1];
@@ -118,11 +117,12 @@ namespace CSE231_PrepTests
             }
             RowStyle temp = table.RowStyles[table.RowCount - 1];
             table.RowCount++;
-            table.RowStyles.Add(new RowStyle(temp.SizeType, temp.Height));
+            table.RowStyles.Add(new RowStyle(temp.SizeType, temp.Height));  
             table.Controls.Add(new Label() { Text = name }, 0, table.RowCount - 1);
             table.Controls.Add(new Label() { Text = numOfQ }, 1, table.RowCount - 1);
             table.Controls.Add(button, 2, table.RowCount - 1);
             table.Controls.Add(new Label() { Text = progres }, 2, table.RowCount - 1);
+            //table.GetControlFromPosition(1, 1)
         }
 
         private Button CloneButton(Button org, EventHandler whenClick)
@@ -175,7 +175,6 @@ namespace CSE231_PrepTests
             // 
             checkedListOptions = new CheckedListBox();
             checkedListOptions.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            checkedListOptions.BackColor = System.Drawing.SystemColors.Control;
             checkedListOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             checkedListOptions.FormattingEnabled = true;
             checkedListOptions.Location = new System.Drawing.Point(3, questionText.Location.Y + questionText.Size.Height);
@@ -183,8 +182,21 @@ namespace CSE231_PrepTests
             checkedListOptions.RightToLeft = System.Windows.Forms.RightToLeft.No;
             checkedListOptions.Size = new System.Drawing.Size(770, 229);
             checkedListOptions.TabIndex = 3;
-
-            
+            switch (curQ.state)
+            {
+                case AnswerdQ.Started:
+                    checkedListOptions.BackColor = Color.Yellow;
+                    break;
+                case AnswerdQ.Incorrect:
+                    checkedListOptions.BackColor = Color.Red;
+                    break;
+                case AnswerdQ.Correct:
+                    checkedListOptions.BackColor = Color.Green;
+                    break;
+                default:
+                    checkedListOptions.BackColor = SystemColors.Control;
+                    break;
+            }
             foreach (var option in curQ.options)
             {
                 checkedListOptions.Items.Add(option.Key,option.Value);
