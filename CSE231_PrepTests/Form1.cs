@@ -56,41 +56,38 @@ namespace CSE231_PrepTests
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TestInfo tempTest = new TestInfo();
-            var fileContent = string.Empty;
-            var filePath = string.Empty;
-
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "c:\\";
                 openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
                 openFileDialog.FilterIndex = 2;
+                openFileDialog.Multiselect = true;
                 openFileDialog.RestoreDirectory = true;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    //Get the path of specified file
-                    filePath = openFileDialog.FileName;
-
-                    //Read the contents of the file into a stream
-                    var fileStream = openFileDialog.OpenFile();
-
-                    using (StreamReader reader = new StreamReader(fileStream))
+                    foreach (string filePath in openFileDialog.FileNames)
                     {
-                        fileContent = reader.ReadToEnd();
+                        TestInfo tempTest = new TestInfo();
+
+                        string fileContent;
+                        using (StreamReader reader = new StreamReader(filePath))
+                        {
+                            fileContent = reader.ReadToEnd();
+                        }
+                        try
+                        {
+                            tempTest.DissectTest(filePath, fileContent);
+                            MessageBox.Show("Yep, that file works", "", MessageBoxButtons.OK);
+                            tests.Add(tempTest);
+                            updateTable();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Something went wrong(", "", MessageBoxButtons.OK);
+                        }
                     }
                 }
-            }
-            try
-            {
-                tempTest.DissectTest(filePath, fileContent);
-                MessageBox.Show("Yep, that file works","", MessageBoxButtons.OK);
-                tests.Add(tempTest);
-                updateTable();
-            }
-            catch 
-            {
-                MessageBox.Show("Something went wrong(","" , MessageBoxButtons.OK);
             }
         }
         void updateTable()
@@ -151,6 +148,7 @@ namespace CSE231_PrepTests
         {
             curTest = tests[Int32.Parse(sender.ToString().Remove(0, sender.ToString().LastIndexOf("t") + "t".Length))];
             curQ = GetUnfinQ(curTest);
+            curTest.wasStarted = true;
             genQ();
         }
         void genQ()
@@ -266,7 +264,7 @@ namespace CSE231_PrepTests
             {
                 foreach (Question question in test.questions)
                 {
-                    if (question.options.Values.All<bool>(b => b == false))
+                    if (question.state == AnswerdQ.NotStarted || question.state == AnswerdQ.Started)
                     {
                         unfinQ = question;
                         break;
@@ -324,16 +322,20 @@ namespace CSE231_PrepTests
                     {
                         if (correctAns == numToAns[i])
                         {
+                            curQ.state = AnswerdQ.Correct;
                             checkedListOptions.BackColor = Color.Green;
                         }
                         else
                         {
+
+                            curQ.state = AnswerdQ.Incorrect;
                             checkedListOptions.BackColor = Color.Red;
                         }
                     }
                 }
             if(checkedListOptions.BackColor == System.Drawing.SystemColors.Control)
             {
+                curQ.state = AnswerdQ.Started;
                 checkedListOptions.BackColor = Color.Yellow;
             }
         }

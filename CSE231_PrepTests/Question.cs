@@ -9,10 +9,16 @@ using System.Threading.Tasks;
 
 namespace CSE231_PrepTests
 {
+    enum AnswerdQ
+    {
+        Correct,
+        Incorrect,
+        Started,
+        NotStarted
+    }
     internal class Question
     {
-        bool wasFinished = false;
-        bool wasStarted = false;
+        public AnswerdQ state;
         bool isPartOfMQ = false;
         public string questionText = "No Question Found";
         public int questionNum = 0;
@@ -23,6 +29,7 @@ namespace CSE231_PrepTests
             this.options = options;
             isPartOfMQ = isPartOf;
             questionNum = qNum;
+            state = AnswerdQ.NotStarted;
         }
     }
 }
