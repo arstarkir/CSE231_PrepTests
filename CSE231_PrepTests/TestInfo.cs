@@ -28,7 +28,11 @@ namespace CSE231_PrepTests
             genInfo = text.Substring(0, text.IndexOf("Form ") -1);
             text = text.Remove(0, text.IndexOf("Form ") + "Form ".Length);
             text = text.Remove(0, text.IndexOf("\n") + "\n".Length);
-            int numLines = text.Substring(0, text.IndexOf("\n\f\n0") + "\n\f\n0".Length).Split('\n').Length - 1;
+            int z = text.IndexOf("\n01") + "\n01".Length;
+
+            //"A\r\n\r\n16"
+            //"C\r\n\r\n16"
+            int numLines = text.Substring(0, text.IndexOf("\n01") + "\n01".Length).Split('\n').Length - 1;
             for (int i = 0; i < (int)(numLines/3); i++)
             {
 
@@ -41,6 +45,12 @@ namespace CSE231_PrepTests
                 temp = Regex.Replace(temp, @"\s+", " ");
                 List<string> ans = temp.Split(' ').ToList();
                 text = text.Remove(0, text.IndexOf("\n") + "\n".Length + 1);
+                try
+                {
+                    int f = text.IndexOf(text.First<char>(c => Char.IsDigit(c) == true));
+                    text = text.Remove(0, f);
+                }
+                catch { }
                 if (nums[0] == "")
                     nums.RemoveAt(0);
                 if (ans[0] == "")
@@ -65,8 +75,8 @@ namespace CSE231_PrepTests
             {
                 bool isPartOfMQ = false;
                 string questionText = text.Substring(0, text.IndexOf(numToAns[0]) -3 );
-                questionText = questionText.Remove(0, questionText.IndexOf("\n"));
-                int questionNum = Int32.Parse(questionText.Substring(questionText.IndexOf("\n") + "\n".Length, questionText.IndexOf(".") - ".".Length));
+                //questionText = questionText.Remove(0, questionText.IndexOf("\n"));
+                int questionNum = Int32.Parse(questionText.Substring(0, questionText.IndexOf(".") - ".".Length));
                 if (questionText.Contains("Figure"))
                 {
                     isPartOfMQ = true;
