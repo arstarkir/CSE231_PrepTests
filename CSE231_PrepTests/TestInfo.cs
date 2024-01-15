@@ -31,6 +31,7 @@ namespace CSE231_PrepTests
             int numLines = text.Substring(0, text.IndexOf("\n\f\n0") + "\n\f\n0".Length).Split('\n').Length - 1;
             for (int i = 0; i < (int)(numLines/3); i++)
             {
+
                 string temp = text.Substring(0, text.IndexOf("\n"));
                 temp = Regex.Replace(temp, @"\s+", " ");
                 List<string> nums = temp.Split(' ').ToList();
@@ -46,8 +47,15 @@ namespace CSE231_PrepTests
                     ans.RemoveAt(0);
                 for (int j = 0; j < nums.Count; j++)
                 {
-                    answers[Int32.Parse(nums[j])] = ans[j];
-                    numOfQuestions = Int32.Parse(nums[j]);
+                    try
+                    {
+                        answers[Int32.Parse(nums[j])] = ans[j];
+                        numOfQuestions = Int32.Parse(nums[j]);
+                    }
+                    catch 
+                    {
+                        continue;
+                    }
                 }
                 text.Remove(0, text.IndexOf("\n") + "\n".Length + 1);
             }
