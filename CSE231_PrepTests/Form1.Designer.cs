@@ -1,4 +1,7 @@
-﻿namespace CSE231_PrepTests
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace CSE231_PrepTests
 {
     partial class Form1
     {
@@ -37,7 +40,7 @@
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.64F);
-            this.button1.Location = new System.Drawing.Point(12, 368);
+            this.button1.Location = new System.Drawing.Point(12, 920);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 70);
             this.button1.TabIndex = 0;
@@ -47,7 +50,6 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.AutoSize = true;
             this.tableLayoutPanel2.ColumnCount = 4;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77.53623F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.46377F));
@@ -59,21 +61,21 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(776, 350);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(936, 900);
             this.tableLayoutPanel2.TabIndex = 2;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
             // Form1
             // 
+            this.Location = new System.Drawing.Point(0, 0);
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(960, 1000);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "CSE231 Prep Tester";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
