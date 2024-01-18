@@ -76,7 +76,7 @@ namespace CSE231_PrepTests
                 bool isPartOfMQ = false;
                 string questionText = text.Substring(0, text.IndexOf(numToAns[0]) -3 );
                 //questionText = questionText.Remove(0, questionText.IndexOf("\n"));
-                int questionNum = Int32.Parse(questionText.Substring(0, questionText.IndexOf(".") - ".".Length));
+                int questionNum = Int32.Parse(questionText.Substring(0, questionText.IndexOf(".")));
                 if (questionText.Contains("Figure"))
                 {
                     isPartOfMQ = true;

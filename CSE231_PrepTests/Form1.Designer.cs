@@ -37,7 +37,7 @@
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.64F);
-            this.button1.Location = new System.Drawing.Point(312, 368);
+            this.button1.Location = new System.Drawing.Point(12, 368);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 70);
             this.button1.TabIndex = 0;
@@ -70,7 +70,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.button1);
-            this.Name = "CSE231 Prep Tester";
+            this.Name = "Form1";
             this.Text = "CSE231 Prep Tester";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -161,9 +161,9 @@ namespace CSE231_PrepTests
             questionText = new Label();
             questionText.AutoSize = true;
             questionText.Location = new System.Drawing.Point(3, 0);
-            questionText.Font =  new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            questionText.Font =  new System.Drawing.Font("Microsoft Sans Serif", 12F);
             questionText.Name = "label1";
-            questionText.Size = new System.Drawing.Size(172, 20);
+            questionText.Size = new System.Drawing.Size(700, 150);
             questionText.TabIndex = 6;
             questionText.Text = curQ.questionText;
             questionText.BackColor = System.Drawing.Color.Transparent;
@@ -175,12 +175,12 @@ namespace CSE231_PrepTests
             // 
             checkedListOptions = new CheckedListBox();
             checkedListOptions.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            checkedListOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            checkedListOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             checkedListOptions.FormattingEnabled = true;
             checkedListOptions.Location = new System.Drawing.Point(3, questionText.Location.Y + questionText.Size.Height);
             checkedListOptions.Name = "checkedListBox1";
             checkedListOptions.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            checkedListOptions.Size = new System.Drawing.Size(770, 229);
+            checkedListOptions.Size = new System.Drawing.Size(700, 150);
             checkedListOptions.TabIndex = 3;
             switch (curQ.state)
             {
@@ -210,7 +210,7 @@ namespace CSE231_PrepTests
             // 
             prev = new Button();
             prev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            prev.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.64F);
+            prev.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             prev.Location = new System.Drawing.Point(3, checkedListOptions.Location.Y + checkedListOptions.Size.Height);
             prev.Name = "button2";
             prev.Size = new System.Drawing.Size(150, 70);
@@ -223,7 +223,7 @@ namespace CSE231_PrepTests
             }
             else
             {
-                prev.Text = "Prev";
+                prev.Text = "Previous";
                 prev.UseVisualStyleBackColor = true;
                 prev.Click += new System.EventHandler(prev_Click);
             }
@@ -233,7 +233,7 @@ namespace CSE231_PrepTests
             // 
             checkAns = new Button();
             checkAns.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            checkAns.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.64F);
+            checkAns.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             checkAns.Location = new System.Drawing.Point(159, checkedListOptions.Location.Y + checkedListOptions.Size.Height);
             checkAns.Name = "button3";
             checkAns.Size = new System.Drawing.Size(150, 70);
@@ -247,7 +247,7 @@ namespace CSE231_PrepTests
             // 
             next = new Button();
             next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            next.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.64F);
+            next.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             next.Location = new System.Drawing.Point(315, checkedListOptions.Location.Y + checkedListOptions.Size.Height);
             next.Name = "button4";
             next.Size = new System.Drawing.Size(150, 70);

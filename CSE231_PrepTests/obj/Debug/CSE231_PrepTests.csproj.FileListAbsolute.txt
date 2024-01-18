@@ -18,3 +18,13 @@ C:\Users\arsta\OneDrive\Документи\GitHub\CSE231_PrepTests\CSE231_PrepTe
 C:\Users\arsta\OneDrive\Документи\GitHub\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.csproj.CoreCompileInputs.cache
 C:\Users\arsta\OneDrive\Документи\GitHub\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.exe
 C:\Users\arsta\OneDrive\Документи\GitHub\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.pdb
+C:\Git\CSE231_PrepTests\CSE231_PrepTests\bin\Debug\CSE231_PrepTests.exe.config
+C:\Git\CSE231_PrepTests\CSE231_PrepTests\bin\Debug\CSE231_PrepTests.exe
+C:\Git\CSE231_PrepTests\CSE231_PrepTests\bin\Debug\CSE231_PrepTests.pdb
+C:\Git\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.csproj.AssemblyReference.cache
+C:\Git\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.Form1.resources
+C:\Git\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.Properties.Resources.resources
+C:\Git\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.csproj.GenerateResource.cache
+C:\Git\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.csproj.CoreCompileInputs.cache
+C:\Git\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.exe
+C:\Git\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.pdb
