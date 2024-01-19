@@ -23,7 +23,7 @@ namespace CSE231_PrepTests
         public void DissectTest(string filePath, string text)
         {
             filePath = filePath.Remove(0, filePath.LastIndexOf("\\") + "\\".Length);
-            this.name = filePath.Substring(0, filePath.Length-4);
+            name = filePath.Substring(0, filePath.Length-4);
             text = text.Remove(0, text.IndexOf("Directions:")-1);
             genInfo = text.Substring(0, text.IndexOf("Form ") -1);
             text = text.Remove(0, text.IndexOf("Form ") + "Form ".Length);
@@ -115,7 +115,7 @@ namespace CSE231_PrepTests
                     }
                     else
                     {
-                        if ((numOfQuestions) == i && text.IndexOf(numToAns[j]) == -1)
+                        if (numOfQuestions == i && text.IndexOf(numToAns[j]) == -1)
                         {
                             options[text] = false;
                             text = "";

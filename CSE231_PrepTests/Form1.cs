@@ -247,8 +247,16 @@ namespace CSE231_PrepTests
                 next.Text = "Next";
                 next.Click += new System.EventHandler(next_Click);
             }
+            if (TempCS.Height > 500)
+            {
+                TempCS.Height = 500;
+            }
+            if (TempCS.Height < checkedListOptions.Location.Y + checkedListOptions.Size.Height + 70)
+            {
+                TempCS.Height = checkedListOptions.Location.Y + checkedListOptions.Size.Height + 70;
+            }
             Controls.Add(next);
-            this.InitializeComponent();
+            InitializeComponent();
             Controls.Remove(button1);
             Controls.Remove(tableLayoutPanel2);
             ClientSize = TempCS;
@@ -301,7 +309,7 @@ namespace CSE231_PrepTests
                 AddItemTable(tableLayoutPanel2, testTableInfoStorage[i].name, testTableInfoStorage[i].numOfQ, testTableInfoStorage[i].button, testTableInfoStorage[i].test);
             }
             Controls.Add(tableLayoutPanel2);
-            this.InitializeComponent();
+            InitializeComponent();
             ClientSize = TempCS;
 
             Controls.Remove(questionText);
@@ -310,6 +318,7 @@ namespace CSE231_PrepTests
             Controls.Remove(next);
             Controls.Remove(checkAns);
         }
+
         private void checkAns_Click(object sender, EventArgs e)
         {
             string correctAns = curTest.answers[curQ.questionNum];
