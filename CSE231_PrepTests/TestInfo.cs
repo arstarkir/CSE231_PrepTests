@@ -85,6 +85,10 @@ namespace CSE231_PrepTests
                 {
                     string numOfNextQ = (i + 1).ToString();
                     numOfNextQ = (numOfNextQ.Length == 1 ? ("\n0" + numOfNextQ) : "\n" + numOfNextQ);
+                    if (numOfQuestions == i)
+                    {
+
+                    }
                     if (j == 5) 
                     {
                         if(numOfQuestions != i)
@@ -115,13 +119,13 @@ namespace CSE231_PrepTests
                     }
                     else
                     {
-                        if (numOfQuestions == i && text.IndexOf(numToAns[j]) == -1)
+                        if (i == numOfQuestions && text.IndexOf(numToAns[j]) == -1)
                         {
                             options[text] = false;
                             text = "";
                         }                     
                         else
-                        if (text.IndexOf(numOfNextQ) > text.IndexOf(numToAns[j]) - 1)
+                        if (text.IndexOf(numOfNextQ) > text.IndexOf(numToAns[j]) - 1 || text.IndexOf(numOfNextQ) == -1)
                         {
                             if (text.Substring(0, text.IndexOf(numToAns[j]) - 1) == "")
                             {
