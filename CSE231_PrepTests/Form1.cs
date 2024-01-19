@@ -12,6 +12,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace CSE231_PrepTests
@@ -31,27 +32,10 @@ namespace CSE231_PrepTests
         Question curQ = null;
 
         //Info Vault
-        TableLayoutPanel testTableInfoStorage = new TableLayoutPanel();
+        List<TableInfoSave> testTableInfoStorage = new List<TableInfoSave>();
         public Form1()
         {
             InitializeComponent();
-
-            //Vault Set
-            testTableInfoStorage.AutoSize = tableLayoutPanel2.AutoSize;
-            testTableInfoStorage.Font = tableLayoutPanel2.Font;
-            testTableInfoStorage.ForeColor = tableLayoutPanel2.ForeColor;
-            testTableInfoStorage.Location = tableLayoutPanel2.Location;
-            testTableInfoStorage.Name = tableLayoutPanel2.Name;
-            testTableInfoStorage.Size = tableLayoutPanel2.Size;
-            testTableInfoStorage.ColumnCount = tableLayoutPanel2.ColumnCount;
-            testTableInfoStorage.RowCount = tableLayoutPanel2.RowCount;
-            testTableInfoStorage.ColumnStyles.Clear();
-            testTableInfoStorage.RowStyles.Clear();
-            testTableInfoStorage.TabIndex = tableLayoutPanel2.TabIndex;
-            foreach (ColumnStyle style in tableLayoutPanel2.ColumnStyles)
-                testTableInfoStorage.ColumnStyles.Add(new ColumnStyle(style.SizeType, style.Width));
-            foreach (RowStyle style in tableLayoutPanel2.RowStyles)
-                testTableInfoStorage.RowStyles.Add(new RowStyle(style.SizeType, style.Height));
         }
         private void Form1_Resize(object sender, System.EventArgs e)
         {
@@ -110,30 +94,21 @@ namespace CSE231_PrepTests
             button.Text = "Start Test"+ (tests.Count - 1).ToString();
             button.UseVisualStyleBackColor = true;
             button.Click += new System.EventHandler(start_Click);
-            AddItemTable(tableLayoutPanel2,tests[tests.Count-1].name, tests[tests.Count-1].numOfQuestions.ToString(), button, "idk.... Good");
+            TestInfo test = tests[tests.Count - 1];
+            AddItemTable(tableLayoutPanel2,tests[tests.Count-1].name, tests[tests.Count-1].numOfQuestions.ToString(), button, test);
+            testTableInfoStorage.Add(new TableInfoSave(tests[tests.Count - 1].name, tests[tests.Count - 1].numOfQuestions.ToString(), button, ref test));
         }
-        private void AddItemTable(TableLayoutPanel table, string name, string numOfQ, Button button, string progres)
+        private void AddItemTable(TableLayoutPanel table, string name, string numOfQ, Button button, TestInfo test)
         {
-            if (tableLayoutPanel2 == table)
-            {
-                RowStyle temp2 = testTableInfoStorage.RowStyles[testTableInfoStorage.RowCount - 1];
-                testTableInfoStorage.RowCount++;
-                testTableInfoStorage.RowStyles.Add(new RowStyle(temp2.SizeType, temp2.Height));
-                testTableInfoStorage.Controls.Add(new Label() { Text = name }, 0, testTableInfoStorage.RowCount - 1);
-                testTableInfoStorage.Controls.Add(new Label() { Text = numOfQ }, 1, testTableInfoStorage.RowCount - 1);
-                testTableInfoStorage.Controls.Add(CloneButton(button, new System.EventHandler(start_Click)), 2, testTableInfoStorage.RowCount - 1);
-                testTableInfoStorage.Controls.Add(new Label() { Text = progres }, 2, testTableInfoStorage.RowCount - 1);
-            }
             RowStyle temp = table.RowStyles[table.RowCount - 1];
             table.RowCount++;
             table.RowStyles.Add(new RowStyle(temp.SizeType, temp.Height));  
             table.Controls.Add(new Label() { Text = name }, 0, table.RowCount - 1);
             table.Controls.Add(new Label() { Text = numOfQ }, 1, table.RowCount - 1);
             table.Controls.Add(button, 2, table.RowCount - 1);
-            table.Controls.Add(new Label() { Text = progres }, 2, table.RowCount - 1);
+            table.Controls.Add(new Label() { Text = test.qFinished.ToString() }, 2, table.RowCount - 1);
             //table.GetControlFromPosition(1, 1)
         }
-
         private Button CloneButton(Button org, EventHandler whenClick)
         {
             Button tempButton = new Button();
@@ -321,7 +296,10 @@ namespace CSE231_PrepTests
         {
             Size TempCS = ClientSize;
             this.Controls.Clear();
-            tableLayoutPanel2 = testTableInfoStorage;
+            for (int i = 0; i < testTableInfoStorage.Count; i++)
+            {
+                AddItemTable(tableLayoutPanel2, testTableInfoStorage[i].name, testTableInfoStorage[i].numOfQ, testTableInfoStorage[i].button, testTableInfoStorage[i].test);
+            }
             Controls.Add(tableLayoutPanel2);
             this.InitializeComponent();
             ClientSize = TempCS;
@@ -343,12 +321,15 @@ namespace CSE231_PrepTests
                     {
                         if (correctAns == numToAns[i])
                         {
+                            if (checkedListOptions.BackColor == SystemColors.Control|| checkedListOptions.BackColor == Color.Yellow)
+                                curTest.qFinished++;
                             curQ.state = AnswerdQ.Correct;
                             checkedListOptions.BackColor = Color.Green;
                         }
                         else
                         {
-
+                            if (checkedListOptions.BackColor == SystemColors.Control || checkedListOptions.BackColor == Color.Yellow)
+                                curTest.qFinished++;
                             curQ.state = AnswerdQ.Incorrect;
                             checkedListOptions.BackColor = Color.Red;
                         }

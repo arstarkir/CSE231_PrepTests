@@ -16,9 +16,9 @@ namespace CSE231_PrepTests
         public string name="Not Found";
         string genInfo;
         public Dictionary<int, string> answers = new Dictionary<int, string>();
+        public int qFinished = 0;
         public int numOfQuestions;
         public bool wasStarted = false;
-        public bool wasFinished = false;
         public List<Question> questions = new List<Question>();
         public void DissectTest(string filePath, string text)
         {
