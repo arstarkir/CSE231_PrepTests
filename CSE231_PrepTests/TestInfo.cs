@@ -14,12 +14,27 @@ namespace CSE231_PrepTests
     internal class TestInfo
     {
         public string name="Not Found";
-        string genInfo;
+        public string genInfo;
         public Dictionary<int, string> answers = new Dictionary<int, string>();
         public int qFinished = 0;
         public int numOfQuestions;
         public bool wasStarted = false;
         public List<Question> questions = new List<Question>();
+        public TestInfo()
+        {
+
+        }
+        public TestInfo(string name, string genInfo, Dictionary<int, string> answers, int qFinished, int numOfQuestions, bool wasStarted, List<Question> questions)
+        {
+            this.name = name;
+            this.genInfo = genInfo;
+            this.answers = answers;
+            this.qFinished = qFinished;
+            this.numOfQuestions = numOfQuestions;
+            this.wasStarted = wasStarted;
+            this.questions = questions;
+        }
+
         public void DissectTest(string filePath, string text)
         {
             filePath = filePath.Remove(0, filePath.LastIndexOf("\\") + "\\".Length);

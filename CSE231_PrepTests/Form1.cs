@@ -12,8 +12,8 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Net.Mime.MediaTypeNames;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace CSE231_PrepTests
 {
@@ -37,16 +37,84 @@ namespace CSE231_PrepTests
         {
             InitializeComponent();
         }
-
+        private Button CloneButton(Button org, EventHandler whenClick)
+        {
+            Button tempButton = new Button();
+            tempButton.FlatStyle = org.FlatStyle;
+            tempButton.Font = org.Font;
+            tempButton.Name = org.Name;
+            tempButton.Size = org.Size;
+            tempButton.TabIndex = org.TabIndex;
+            tempButton.Text = org.Text;
+            tempButton.UseVisualStyleBackColor = org.UseVisualStyleBackColor;
+            tempButton.Click += whenClick;
+            return tempButton;
+        }
         private void Form1_FormClosing(Object sender, FormClosingEventArgs e)
         {
-
-            System.Text.StringBuilder messageBoxCS = new System.Text.StringBuilder();
-            messageBoxCS.AppendFormat("{0} = {1}", "CloseReason", e.CloseReason);
-            messageBoxCS.AppendLine();
-            messageBoxCS.AppendFormat("{0} = {1}", "Cancel", e.Cancel);
-            messageBoxCS.AppendLine();
-            MessageBox.Show(messageBoxCS.ToString(), "FormClosing Event");
+            //public string name = "Not Found";
+            //string genInfo;
+            //public Dictionary<int, string> answers = new Dictionary<int, string>();
+            //public int qFinished = 0;
+            //public int numOfQuestions;
+            //public bool wasStarted = false;
+            //public List<Question> questions = new List<Question>();
+            //public AnswerdQ state;
+            //bool isPartOfMQ = false;
+            //public string questionText = "No Question Found";
+            //public int questionNum = 0;
+            //public Dictionary<string, bool> options = new Dictionary<string, bool>();
+            foreach (TableInfoSave item in testTableInfoStorage)
+            {
+                                JObject rss =
+                new JObject(
+                    new JProperty("name", item.name),
+                    new JProperty("numOfQ", item.numOfQ),
+                new JProperty("testInfo",
+                    new JObject(
+                        new JProperty("name", item.test.name),
+                        new JProperty("genInfo", item.test.genInfo),
+                        new JProperty("answers",
+                            new JArray(
+                                from a in item.test.answers
+                                select new JObject(
+                                    new JProperty("aKey", a.Key),
+                                    new JProperty("aVal", a.Value)))),
+                        new JProperty("qFinished", item.test.qFinished),
+                        new JProperty("numOfQuestions", item.test.numOfQuestions),
+                        new JProperty("wasStarted", item.test.wasStarted),
+                        new JProperty("questions",
+                            new JArray(
+                                from q in item.test.questions
+                                select new JObject(
+                                    new JProperty("state", q.state),
+                                    new JProperty("isPartOfMQ", q.isPartOfMQ),
+                                    new JProperty("questionText", q.questionText),
+                                    new JProperty("questionNum", q.questionNum),
+                                    new JProperty("options",
+                                        new JArray(
+                                            from o in q.options
+                                            select new JObject(
+                                            new JProperty("qKey", o.Key),
+                                            new JProperty("qVal", o.Value)
+                                            )))))))));
+                //if (!File.Exists("CSE231_PrepTests_save_info.txt")) // If file does not exists
+                //{
+                //    File.Create("CSE231_PrepTests_save_info.txt").Close(); // Create file
+                //    using (StreamWriter sw = File.AppendText("CSE231_PrepTests_save_info.txt"))
+                //    {
+                //        sw.WriteLine(rss.ToString()); // Write text to .txt file
+                //    }
+                //}
+                //else // If file already exists
+                //{
+                //    // File.WriteAllText("FILENAME.txt", String.Empty); // Clear file
+                //    using (StreamWriter sw = File.AppendText("CSE231_PrepTests_save_info.txt"))
+                //    {
+                //        sw.WriteLine(rss.ToString()); // Write text to .txt file
+                //    }
+                //}
+            }
         }
 
 

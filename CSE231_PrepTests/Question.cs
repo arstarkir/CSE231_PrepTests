@@ -19,7 +19,7 @@ namespace CSE231_PrepTests
     internal class Question
     {
         public AnswerdQ state;
-        bool isPartOfMQ = false;
+        public bool isPartOfMQ = false;
         public string questionText = "No Question Found";
         public int questionNum = 0;
         public Dictionary<string, bool> options = new Dictionary<string, bool>();
