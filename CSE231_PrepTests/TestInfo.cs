@@ -30,12 +30,9 @@ namespace CSE231_PrepTests
             text = text.Remove(0, text.IndexOf("\n") + "\n".Length);
             int z = text.IndexOf("\n01") + "\n01".Length;
 
-            //"A\r\n\r\n16"
-            //"C\r\n\r\n16"
             int numLines = text.Substring(0, text.IndexOf("\n01") + "\n01".Length).Split('\n').Length - 1;
             for (int i = 0; i < (int)(numLines/3); i++)
             {
-
                 string temp = text.Substring(0, text.IndexOf("\n"));
                 temp = Regex.Replace(temp, @"\s+", " ");
                 List<string> nums = temp.Split(' ').ToList();

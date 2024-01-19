@@ -145,13 +145,13 @@ namespace CSE231_PrepTests
             questionText = new Label();
             questionText.AutoSize = true;
             questionText.Location = new System.Drawing.Point(3, 0);
-            questionText.Font =  new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            questionText.Font =  new System.Drawing.Font("Microsoft Sans Serif", 14F);
             questionText.Name = "label1";
             questionText.Size = new System.Drawing.Size(700, 150);
             questionText.TabIndex = 6;
             questionText.Text = curQ.questionText;
             questionText.BackColor = System.Drawing.Color.Transparent;
-            questionText.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            questionText.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             questionText.Click += new System.EventHandler(label1_Click);
             Controls.Add(questionText);
             // 
@@ -291,7 +291,7 @@ namespace CSE231_PrepTests
                 genQ();
             }
         }
-
+        
         private void menu_Click(object sender, EventArgs e)
         {
             Size TempCS = ClientSize;
