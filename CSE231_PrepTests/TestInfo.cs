@@ -85,10 +85,6 @@ namespace CSE231_PrepTests
                 {
                     string numOfNextQ = (i + 1).ToString();
                     numOfNextQ = (numOfNextQ.Length == 1 ? ("\n0" + numOfNextQ) : "\n" + numOfNextQ);
-                    if (numOfQuestions == i)
-                    {
-
-                    }
                     if (j == 5) 
                     {
                         if(numOfQuestions != i)

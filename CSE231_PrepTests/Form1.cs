@@ -37,16 +37,19 @@ namespace CSE231_PrepTests
         {
             InitializeComponent();
         }
-        private void Form1_Resize(object sender, System.EventArgs e)
-        {
-            Control control = (Control)sender;
 
-            // Ensure the Form remains square (Height = Width).
-            if (control.Size.Height != control.Size.Width)
-            {
-                control.Size = new Size(control.Size.Width, control.Size.Width);
-            }
+        private void Form1_FormClosing(Object sender, FormClosingEventArgs e)
+        {
+
+            System.Text.StringBuilder messageBoxCS = new System.Text.StringBuilder();
+            messageBoxCS.AppendFormat("{0} = {1}", "CloseReason", e.CloseReason);
+            messageBoxCS.AppendLine();
+            messageBoxCS.AppendFormat("{0} = {1}", "Cancel", e.Cancel);
+            messageBoxCS.AppendLine();
+            MessageBox.Show(messageBoxCS.ToString(), "FormClosing Event");
         }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -107,20 +110,6 @@ namespace CSE231_PrepTests
             table.Controls.Add(new Label() { Text = numOfQ }, 1, table.RowCount - 1);
             table.Controls.Add(button, 2, table.RowCount - 1);
             table.Controls.Add(new Label() { Text = test.qFinished.ToString() }, 2, table.RowCount - 1);
-            //table.GetControlFromPosition(1, 1)
-        }
-        private Button CloneButton(Button org, EventHandler whenClick)
-        {
-            Button tempButton = new Button();
-            tempButton.FlatStyle = org.FlatStyle;
-            tempButton.Font = org.Font;
-            tempButton.Name = org.Name;
-            tempButton.Size = org.Size;
-            tempButton.TabIndex = org.TabIndex;
-            tempButton.Text = org.Text;
-            tempButton.UseVisualStyleBackColor = org.UseVisualStyleBackColor;
-            tempButton.Click += whenClick;
-            return tempButton;
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -138,6 +127,7 @@ namespace CSE231_PrepTests
         void genQ()
         {
             Size TempCS = ClientSize;
+            Point TempLoc = Location;
             this.Controls.Clear();
             // 
             // label1
@@ -260,6 +250,7 @@ namespace CSE231_PrepTests
             Controls.Remove(button1);
             Controls.Remove(tableLayoutPanel2);
             ClientSize = TempCS;
+            Location = TempLoc;
         }
         Question GetUnfinQ(TestInfo test)
         {
@@ -299,10 +290,16 @@ namespace CSE231_PrepTests
                 genQ();
             }
         }
-        
+
         private void menu_Click(object sender, EventArgs e)
         {
             Size TempCS = ClientSize;
+            Point TempLoc = Location;
+
+            if (TempCS.Height > 500)
+            {
+                TempCS.Height = 500;
+            }
             this.Controls.Clear();
             for (int i = 0; i < testTableInfoStorage.Count; i++)
             {
@@ -311,7 +308,7 @@ namespace CSE231_PrepTests
             Controls.Add(tableLayoutPanel2);
             InitializeComponent();
             ClientSize = TempCS;
-
+            Location = TempLoc;
             Controls.Remove(questionText);
             Controls.Remove(checkedListOptions);
             Controls.Remove(prev);
@@ -359,6 +356,11 @@ namespace CSE231_PrepTests
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Location = new System.Drawing.Point(0,0);
         }
     }
 }
