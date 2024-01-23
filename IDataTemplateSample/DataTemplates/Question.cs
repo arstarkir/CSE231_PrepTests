@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace CSE231_PrepTests
 {
-    enum AnswerdQ
+    public enum AnswerdQ
     {
         Correct,
         Incorrect,
         Started,
         NotStarted
     }
-    internal class Question
+    public class Question
     {
         public AnswerdQ state;
         public bool isPartOfMQ = false;
