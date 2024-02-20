@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -10,7 +11,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -19,12 +22,17 @@ namespace CSE231_PrepTests
 {
     public partial class Form1 : Form
     {
+        bool timerEx = false;
         //Question visuals
         Label questionText = new System.Windows.Forms.Label();
+        Label timer = new System.Windows.Forms.Label();
         CheckedListBox checkedListOptions = new System.Windows.Forms.CheckedListBox();
         Button prev = new System.Windows.Forms.Button();
         Button next = new System.Windows.Forms.Button();
         Button checkAns = new System.Windows.Forms.Button();
+
+        System.Windows.Forms.Timer TestTimer = new System.Windows.Forms.Timer();
+        
 
         //Question + Test info
         List<TestInfo> tests = new List<TestInfo>();
@@ -36,7 +44,19 @@ namespace CSE231_PrepTests
         public Form1()
         {
             InitializeComponent();
+            TestTimer.Interval = 1000;
+            TestTimer.Tick += new EventHandler(OnTimedEvent);
+            TestTimer.Start();
+
         }
+
+        private void OnTimedEvent(object sender, EventArgs e)
+        {
+            if(timerEx)
+                timer.Text = curTest.TimeSpent.Elapsed.ToString(@"hh\:mm\:ss");
+
+        }
+
         private Button CloneButton(Button org, EventHandler whenClick)
         {
             Button tempButton = new Button();
@@ -166,8 +186,32 @@ namespace CSE231_PrepTests
             button.UseVisualStyleBackColor = true;
             button.Click += new System.EventHandler(start_Click);
             TestInfo test = tests[tests.Count - 1];
-            AddItemTable(tableLayoutPanel2,tests[tests.Count-1].name, tests[tests.Count-1].numOfQuestions.ToString(), button, test);
+            //AddItemTable(tableLayoutPanel2,tests[tests.Count-1].name, tests[tests.Count-1].numOfQuestions.ToString(), button, test);
             testTableInfoStorage.Add(new TableInfoSave(tests[tests.Count - 1].name, tests[tests.Count - 1].numOfQuestions.ToString(), button, ref test));
+
+
+            Size TempCS = ClientSize;
+            Point TempLoc = Location;
+
+            if (TempCS.Height > 500)
+            {
+                TempCS.Height = 500;
+            }
+            this.Controls.Clear();
+            for (int i = 0; i < testTableInfoStorage.Count; i++)
+            {
+                AddItemTable(tableLayoutPanel2, testTableInfoStorage[i].name, testTableInfoStorage[i].numOfQ, testTableInfoStorage[i].button, testTableInfoStorage[i].test);
+            }
+            Controls.Add(tableLayoutPanel2);
+            InitializeComponent();
+            ClientSize = TempCS;
+            Location = TempLoc;
+            Controls.Remove(questionText);
+            Controls.Remove(checkedListOptions);
+            Controls.Remove(prev);
+            Controls.Remove(next);
+            Controls.Remove(checkAns);
+
         }
         private void AddItemTable(TableLayoutPanel table, string name, string numOfQ, Button button, TestInfo test)
         {
@@ -190,6 +234,7 @@ namespace CSE231_PrepTests
             curTest = tests[Int32.Parse(sender.ToString().Remove(0, sender.ToString().LastIndexOf("t") + "t".Length))];
             curQ = GetUnfinQ(curTest);
             curTest.wasStarted = true;
+            TestTimer.Tick += new System.EventHandler(this.timer2_Tick);
             genQ();
         }
         void genQ()
@@ -212,6 +257,28 @@ namespace CSE231_PrepTests
             questionText.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             questionText.Click += new System.EventHandler(label1_Click);
             Controls.Add(questionText);
+
+            // 
+            // label2
+            // 
+            timer.AutoSize = true;
+            timer.Location = new System.Drawing.Point(3, 0);
+            timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            timer.Name = "label2";
+            if (timer.Text != null)
+                timer.Text = timer.Text;
+            else
+                timer.Text = "Time";
+            timer.Location = new System.Drawing.Point(questionText.Width+3, questionText.Location.Y + questionText.Size.Height);
+            timer.Size = new System.Drawing.Size(700, 150);
+            timer.TabIndex = 6;
+            timer.BackColor = System.Drawing.Color.Transparent;
+            timer.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            timer.Click += new System.EventHandler(label1_Click);
+            Controls.Add(timer);
+            timerEx = true;
+            curTest.TimeSpent.Start();
+
             // 
             // checkedListBox1
             // 
@@ -382,6 +449,7 @@ namespace CSE231_PrepTests
             Controls.Remove(prev);
             Controls.Remove(next);
             Controls.Remove(checkAns);
+            curTest.TimeSpent.Stop();
         }
 
         private void checkAns_Click(object sender, EventArgs e)
@@ -429,6 +497,10 @@ namespace CSE231_PrepTests
         private void Form1_Load(object sender, EventArgs e)
         {
             Location = new System.Drawing.Point(0,0);
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
         }
     }
 }

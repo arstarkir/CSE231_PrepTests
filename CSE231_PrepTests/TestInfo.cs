@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
@@ -19,6 +20,7 @@ namespace CSE231_PrepTests
         public int qFinished = 0;
         public int numOfQuestions;
         public bool wasStarted = false;
+        public Stopwatch TimeSpent = new Stopwatch();
         public List<Question> questions = new List<Question>();
         public TestInfo()
         {
