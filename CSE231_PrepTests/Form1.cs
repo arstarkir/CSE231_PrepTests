@@ -30,6 +30,7 @@ namespace CSE231_PrepTests
         Button prev = new System.Windows.Forms.Button();
         Button next = new System.Windows.Forms.Button();
         Button checkAns = new System.Windows.Forms.Button();
+        Button timerB = new System.Windows.Forms.Button();
 
         System.Windows.Forms.Timer TestTimer = new System.Windows.Forms.Timer();
         
@@ -265,10 +266,11 @@ namespace CSE231_PrepTests
             timer.Location = new System.Drawing.Point(3, 0);
             timer.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             timer.Name = "label2";
-            if (timer.Text != null)
-                timer.Text = timer.Text;
-            else
-                timer.Text = "Time";
+            if(timer.Text== "")
+            {
+                timer.Text = "00:00:00";
+            }
+            timer.Text = timer.Text;
             timer.Location = new System.Drawing.Point(questionText.Width+3, questionText.Location.Y + questionText.Size.Height);
             timer.Size = new System.Drawing.Size(700, 150);
             timer.TabIndex = 6;
@@ -276,8 +278,22 @@ namespace CSE231_PrepTests
             timer.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             timer.Click += new System.EventHandler(label1_Click);
             Controls.Add(timer);
-            timerEx = true;
-            curTest.TimeSpent.Start();
+
+
+            // 
+            // timerB
+            // 
+            timerB = new Button();
+            timerB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            timerB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            timerB.Location = new System.Drawing.Point(timer.Location.X + timer.Size.Width, timer.Location.Y);
+            timerB.Name = "timerB";
+            timerB.Size = new System.Drawing.Size(50, 30);
+            timerB.TabIndex = 5;
+            timerB.Text = "Start";
+            timerB.UseVisualStyleBackColor = true;
+            timerB.Click += new System.EventHandler(timerStart);
+            Controls.Add(timerB);
 
             // 
             // checkedListBox1
@@ -425,7 +441,20 @@ namespace CSE231_PrepTests
                 genQ();
             }
         }
-
+        private void timerStart(object sender, EventArgs e)
+        {
+            timerEx = true;
+            curTest.TimeSpent.Start();
+            timerB.Click += new System.EventHandler(timerStop);
+            timerB.Text = "Stop";
+        }
+        private void timerStop(object sender, EventArgs e)
+        {
+            timerEx = false;
+            curTest.TimeSpent.Stop();
+            timerB.Click += new System.EventHandler(timerStart);
+            timerB.Text = "Start";
+        }
         private void menu_Click(object sender, EventArgs e)
         {
             Size TempCS = ClientSize;
@@ -449,7 +478,8 @@ namespace CSE231_PrepTests
             Controls.Remove(prev);
             Controls.Remove(next);
             Controls.Remove(checkAns);
-            curTest.TimeSpent.Stop();
+            if(curTest.TimeSpent.IsRunning)
+                curTest.TimeSpent.Stop();
         }
 
         private void checkAns_Click(object sender, EventArgs e)
