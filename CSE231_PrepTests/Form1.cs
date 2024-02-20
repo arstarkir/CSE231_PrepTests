@@ -271,7 +271,8 @@ namespace CSE231_PrepTests
                 timer.Text = "00:00:00";
             }
             timer.Text = timer.Text;
-            timer.Location = new System.Drawing.Point(questionText.Width+3, questionText.Location.Y + questionText.Size.Height);
+            timer.Location = new System.Drawing.Point(questionText.Location.X + 700, questionText.Location.Y);
+            //timer.Location = new System.Drawing.Point(questionText.Location.X + questionText.Size.Width, questionText.Location.Y + questionText.Size.Height);
             timer.Size = new System.Drawing.Size(700, 150);
             timer.TabIndex = 6;
             timer.BackColor = System.Drawing.Color.Transparent;
