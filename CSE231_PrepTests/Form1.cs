@@ -61,51 +61,53 @@ namespace CSE231_PrepTests
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
 
             string jsonString = File.ReadAllText(filePath);
-            JObject rss = JObject.Parse(jsonString);
-            
-            string name = (string)rss["name"];
-            string numOfQ = (string)rss["numOfQ"];
-            Button button = new Button();
-            JObject testInfoJson = (JObject)rss["testInfo"];
+            JArray rssArray = JArray.Parse(jsonString); // Expecting an array of items
 
-            var answersList = testInfoJson["answers"].ToObject<List<AnswerItem>>();
-            var answersDict = answersList.ToDictionary(item => item.aKey, item => item.aVal);
-
-            string nameT = (string)testInfoJson["name"];
-            string genInfo = (string)testInfoJson["genInfo"];
-
-            string totalTimeString = (string)testInfoJson["Time"];
-
-            Dictionary<int, string> answers = answersDict;
-            int qFinished = (int)testInfoJson["qFinished"];
-            int numOfQuestions = (int)testInfoJson["numOfQuestions"];
-            bool wasStarted = (bool)testInfoJson["wasStarted"];
-
-            JArray questionsArray = (JArray)testInfoJson["questions"];
-            List<Question> questions = new List<Question>();
-
-            foreach (JObject questionJson in questionsArray)
+            foreach (JObject rss in rssArray) // Iterating through each item
             {
-                string questionText = questionJson.Value<string>("questionText");
-                int questionNum = questionJson.Value<int>("questionNum");
-                bool isPartOfMQ = questionJson.Value<bool>("isPartOfMQ");
-                string stateStr = questionJson["state"].ToString();
-                AnswerdQ state = (AnswerdQ)Enum.Parse(typeof(AnswerdQ), stateStr);
+                string name = (string)rss["name"];
+                string numOfQ = (string)rss["numOfQ"];
 
-                JArray optionsArray = (JArray)questionJson["options"];
-                Dictionary<string, bool> options = optionsArray.ToDictionary(
-                    opt => opt["qKey"].ToString(),
-                    opt => (bool)opt["qVal"]
-                );
+                JObject testInfoJson = (JObject)rss["testInfo"];
 
-                Question question = new Question(questionText, options, isPartOfMQ, questionNum);
-                question.state = state;
-                questions.Add(question);
+                var answersList = testInfoJson["answers"].ToObject<List<AnswerItem>>();
+                var answersDict = answersList.ToDictionary(item => item.aKey, item => item.aVal);
+
+                string nameT = (string)testInfoJson["name"];
+                string genInfo = (string)testInfoJson["genInfo"];
+                string totalTimeString = (string)testInfoJson["Time"];
+
+                Dictionary<int, string> answers = answersDict;
+                int qFinished = (int)testInfoJson["qFinished"];
+                int numOfQuestions = (int)testInfoJson["numOfQuestions"];
+                bool wasStarted = (bool)testInfoJson["wasStarted"];
+
+                JArray questionsArray = (JArray)testInfoJson["questions"];
+                List<Question> questions = new List<Question>();
+
+                foreach (JObject questionJson in questionsArray)
+                {
+                    string questionText = questionJson.Value<string>("questionText");
+                    int questionNum = questionJson.Value<int>("questionNum");
+                    bool isPartOfMQ = questionJson.Value<bool>("isPartOfMQ");
+                    string stateStr = questionJson["state"].ToString();
+                    AnswerdQ state = (AnswerdQ)Enum.Parse(typeof(AnswerdQ), stateStr);
+
+                    JArray optionsArray = (JArray)questionJson["options"];
+                    Dictionary<string, bool> options = optionsArray.ToDictionary(
+                        opt => opt["qKey"].ToString(),
+                        opt => (bool)opt["qVal"]
+                    );
+
+                    Question question = new Question(questionText, options, isPartOfMQ, questionNum);
+                    question.state = state;
+                    questions.Add(question);
+                }
+                TestInfo testInfo = new TestInfo(nameT, genInfo, answers, qFinished, numOfQuestions, wasStarted, questions, totalTimeString);
+                tests.Add(testInfo);
+                updateTable();
             }
-            TestInfo testInfo = new TestInfo(nameT, genInfo, answers, qFinished, numOfQuestions, wasStarted, questions, totalTimeString);
-            tests.Add(testInfo);
 
-            updateTable();
         }
 
         private void OnTimedEvent(object sender, EventArgs e)
@@ -133,72 +135,57 @@ namespace CSE231_PrepTests
         }
         private void Form1_FormClosing(Object sender, FormClosingEventArgs e)
         {
-            
+
+            JArray allTestsJArray = new JArray();
+
             foreach (TableInfoSave item in testTableInfoStorage)
             {
-                TimeSpan timeSpan1 = TimeSpan.ParseExact(item.test.TimeSpent.Elapsed.ToString(), @"hh\:mm\:ss\.fffffff", CultureInfo.InvariantCulture);
+
                 TimeSpan timeSpan2 = TimeSpan.ParseExact(item.test.prevTimeSpent, @"hh\:mm\:ss\.fffffff", CultureInfo.InvariantCulture);
-                TimeSpan totalTimeSpan = timeSpan1 + timeSpan2;
+                TimeSpan totalTimeSpan = item.test.TimeSpent.Elapsed + timeSpan2;
                 string totalTimeString = totalTimeSpan.ToString(@"hh\:mm\:ss\.fffffff");
-                JObject rss =
-                new JObject(
+
+                JObject rss = new JObject(
                     new JProperty("name", item.name),
                     new JProperty("numOfQ", item.numOfQ),
-                new JProperty("testInfo",
-                    new JObject(
-                        new JProperty("name", item.test.name),
-                        new JProperty("genInfo", item.test.genInfo),
-                        new JProperty("Time", totalTimeString),
-                        new JProperty("answers",
-                            new JArray(
-                                from a in item.test.answers
-                                select new JObject(
-                                    new JProperty("aKey", a.Key),
-                                    new JProperty("aVal", a.Value)))),
-                        new JProperty("qFinished", item.test.qFinished),
-                        new JProperty("numOfQuestions", item.test.numOfQuestions),
-                        new JProperty("wasStarted", item.test.wasStarted),
-                        new JProperty("questions",
-                            new JArray(
-                                from q in item.test.questions
-                                select new JObject(
-                                    new JProperty("state", q.state),
-                                    new JProperty("isPartOfMQ", q.isPartOfMQ),
-                                    new JProperty("questionText", q.questionText),
-                                    new JProperty("questionNum", q.questionNum),
-                                    new JProperty("options",
-                                        new JArray(
-                                            from o in q.options
-                                            select new JObject(
-                                            new JProperty("qKey", o.Key),
-                                            new JProperty("qVal", o.Value)
-                                            )))))))));
+                    new JProperty("testInfo",
+                        new JObject(
+                            new JProperty("name", item.test.name),
+                            new JProperty("genInfo", item.test.genInfo),
+                            new JProperty("Time", totalTimeString),
+                            new JProperty("answers",
+                                new JArray(
+                                    from a in item.test.answers
+                                    select new JObject(
+                                        new JProperty("aKey", a.Key),
+                                        new JProperty("aVal", a.Value)))),
+                            new JProperty("qFinished", item.test.qFinished),
+                            new JProperty("numOfQuestions", item.test.numOfQuestions),
+                            new JProperty("wasStarted", item.test.wasStarted),
+                            new JProperty("questions",
+                                new JArray(
+                                    from q in item.test.questions
+                                    select new JObject(
+                                        new JProperty("state", q.state),
+                                        new JProperty("isPartOfMQ", q.isPartOfMQ),
+                                        new JProperty("questionText", q.questionText),
+                                        new JProperty("questionNum", q.questionNum),
+                                        new JProperty("options",
+                                            new JArray(
+                                                from o in q.options
+                                                select new JObject(
+                                                    new JProperty("qKey", o.Key),
+                                                    new JProperty("qVal", o.Value)
+                                                )))))))));
 
-                string jsonContent = rss.ToString();
-
-                // Define the path for the file in the current working directory
-                string fileName = "SaveData.json";
-                string filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
-
-                // Write the JSON string to a file
-                File.WriteAllText(filePath, jsonContent);
-                //if (!File.Exists("CSE231_PrepTests_save_info.txt")) // If file does not exists
-                //{ 
-                //    File.Create("CSE231_PrepTests_save_info.txt").Close(); // Create file
-                //    using (StreamWriter sw = File.AppendText("CSE231_PrepTests_save_info.txt"))
-                //    {
-                //        sw.WriteLine(rss.ToString()); // Write text to .txt file
-                //    }
-                //}
-                //else // If file already exists
-                //{
-                //    // File.WriteAllText("FILENAME.txt", String.Empty); // Clear file
-                //    using (StreamWriter sw = File.AppendText("CSE231_PrepTests_save_info.txt"))
-                //    {
-                //        sw.WriteLine(rss.ToString()); // Write text to .txt file
-                //    }
-                //}
+                // Add the JObject to the JArray
+                allTestsJArray.Add(rss);
             }
+            string jsonContent = allTestsJArray.ToString();
+            string fileName = "SaveData.json";
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
+
+            File.WriteAllText(filePath, jsonContent);
         }
 
 
