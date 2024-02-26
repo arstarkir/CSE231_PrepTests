@@ -26,7 +26,7 @@ namespace CSE231_PrepTests
         {
 
         }
-        public TestInfo(string name, string genInfo, Dictionary<int, string> answers, int qFinished, int numOfQuestions, bool wasStarted, List<Question> questions)
+        public TestInfo(string name, string genInfo, Dictionary<int, string> answers, int qFinished, int numOfQuestions, bool wasStarted, List<Question> questions, Stopwatch TimeSpent = null)
         {
             this.name = name;
             this.genInfo = genInfo;
@@ -35,6 +35,10 @@ namespace CSE231_PrepTests
             this.numOfQuestions = numOfQuestions;
             this.wasStarted = wasStarted;
             this.questions = questions;
+            if(TimeSpent == null)
+                this.TimeSpent = new Stopwatch();
+            else
+                this.TimeSpent = TimeSpent;
         }
 
         public void DissectTest(string filePath, string text)

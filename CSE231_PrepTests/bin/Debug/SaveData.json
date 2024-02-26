@@ -1,0 +1,976 @@
+{
+  "name": "Exam2b-16s-Enbody",
+  "numOfQ": "30",
+  "testInfo": {
+    "name": "Exam2b-16s-Enbody",
+    "genInfo": "\nDirections:\n\na. DO NOT OPEN YOUR EXAM BOOKLET UNTIL YOU HAVE BEEN TOLD TO BEGIN.\n\nb. This exam booklet contains 30 questions, each of which will be weighted\nequally at 5 points each.   The total points for the exam is 150 points.\n\nc. You may use one 8.5\" x 11\" note sheet during the exam.  No other reference\nmaterials or electronic devices may be used during the examination, i.e. no\ncalculators, cell phones, mp3 players, etc.. Paper dictionaries are allowed.\n\nd. Questions will not be interpreted during the examination.\n\ne. You should choose the single best alternative for each question, even if\nyou believe that a question is ambiguous or contains a typographic\nerror.  If a question has more than one best answer, credit will be\ngiven for any of the correct answers.\n\nf. Please fill in the requested information at the top of this exam booklet.\n\ng. Use a #2 pencil to encode any information on the OMR form.\n\nh. Please encode the following on the OMR form:\n\n     -- Last name and first initial\n     -- MSU PID\n     -- Exam form (2 B)\n\ni. Please sign the OMR form.\n\nj. Only answers recorded on your OMR form for multiple choice questions will be \ncounted for credit.  Completely erase any responses on the OMR form that you \nwish to delete.\n\nk. You must turn in this exam booklet and the OMR form when you have completed\nthe exam.  When leaving, please be courteous to those still taking the exam.\n",
+    "Time": "00:00:00",
+    "answers": [
+      {
+        "aKey": 1,
+        "aVal": "A"
+      },
+      {
+        "aKey": 2,
+        "aVal": "B"
+      },
+      {
+        "aKey": 3,
+        "aVal": "E"
+      },
+      {
+        "aKey": 4,
+        "aVal": "CD"
+      },
+      {
+        "aKey": 5,
+        "aVal": "D"
+      },
+      {
+        "aKey": 6,
+        "aVal": "C"
+      },
+      {
+        "aKey": 7,
+        "aVal": "E"
+      },
+      {
+        "aKey": 8,
+        "aVal": "C"
+      },
+      {
+        "aKey": 9,
+        "aVal": "B"
+      },
+      {
+        "aKey": 10,
+        "aVal": "D"
+      },
+      {
+        "aKey": 11,
+        "aVal": "B"
+      },
+      {
+        "aKey": 12,
+        "aVal": "C"
+      },
+      {
+        "aKey": 13,
+        "aVal": "B"
+      },
+      {
+        "aKey": 14,
+        "aVal": "D"
+      },
+      {
+        "aKey": 15,
+        "aVal": "D"
+      },
+      {
+        "aKey": 16,
+        "aVal": "D"
+      },
+      {
+        "aKey": 17,
+        "aVal": "B"
+      },
+      {
+        "aKey": 18,
+        "aVal": "A"
+      },
+      {
+        "aKey": 19,
+        "aVal": "C"
+      },
+      {
+        "aKey": 20,
+        "aVal": "C"
+      },
+      {
+        "aKey": 21,
+        "aVal": "C"
+      },
+      {
+        "aKey": 22,
+        "aVal": "B"
+      },
+      {
+        "aKey": 23,
+        "aVal": "C"
+      },
+      {
+        "aKey": 24,
+        "aVal": "B"
+      },
+      {
+        "aKey": 25,
+        "aVal": "B"
+      },
+      {
+        "aKey": 26,
+        "aVal": "D"
+      },
+      {
+        "aKey": 27,
+        "aVal": "B"
+      },
+      {
+        "aKey": 28,
+        "aVal": "E"
+      },
+      {
+        "aKey": 29,
+        "aVal": "B"
+      },
+      {
+        "aKey": 30,
+        "aVal": "C"
+      }
+    ],
+    "qFinished": 1,
+    "numOfQuestions": 30,
+    "wasStarted": true,
+    "questions": [
+      {
+        "state": 1,
+        "isPartOfMQ": false,
+        "questionText": "01. Given L1 = [1,2] and L2 = [7,8],  what is L2.extend(L1)?\n\n ",
+        "questionNum": 1,
+        "options": [
+          {
+            "qKey": " A) [7, 8, 1, 2]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) [7, 8, [1, 2]]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) [[7, 8], [1, 2]]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) [1, 2, [7, 8]]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above.\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 2,
+        "isPartOfMQ": false,
+        "questionText": "\n02. Given s = \"-x-y-z-\"\n    what is s.split(\"-\")\n\n ",
+        "questionNum": 2,
+        "options": [
+          {
+            "qKey": " A) 'x-y-z'\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) ['', 'x', 'y', 'z', '']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) ['x', 'y', 'z']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) 'x', 'y', 'z'\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": false,
+        "questionText": "\n03. Given L = ['a','b','c']\n    Which is printed by print(L.pop()) ?\n\n ",
+        "questionNum": 3,
+        "options": [
+          {
+            "qKey": " A) ['a','b']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) a\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) b\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) None\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": false,
+        "questionText": "\n04. Which of the following is mutable? \n\n ",
+        "questionNum": 4,
+        "options": [
+          {
+            "qKey": " A) string\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) integer\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) list\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) dictionary\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above.\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": false,
+        "questionText": "\n05. Given the following code, what is printed by Line 1?\n   def f1(x):\n       x = 2*x\n\n   x = 2\n   x = f1(x)\n   print(x)     # Line 1\n\n ",
+        "questionNum": 5,
+        "options": [
+          {
+            "qKey": " A) 0\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) 2\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) 4\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) None\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": false,
+        "questionText": "\n06. Given the list of digits L = ['2','4','6','8']\n    Which of the following prints their integer sum, i.e. 20?\n\n ",
+        "questionNum": 6,
+        "options": [
+          {
+            "qKey": " A) for i in L:\n         sum += 1\n       print(sum)\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) print(sum(L))\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) print(sum([int(x) for x in L])) \n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) All of the above.\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above.\n\f\n  def f1(a,b=2):                ",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n      return a + b              # Figure 1 #\n                                ############\n  print(f1())      # Line 1\n  print(f1(2,4))   # Line 2\n  print(f1(2))     # Line 3\n\n07. What is printed by Line 1 when Figure 1 is executed?\n\n ",
+        "questionNum": 7,
+        "options": [
+          {
+            "qKey": " A) 2\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) 4\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) 6\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) None\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n      return a + b              # Figure 1 #\n                                ############\n  print(f1())      # Line 1\n  print(f1(2,4))   # Line 2\n  print(f1(2))     # Line 3\n\n08. What is printed by Line 2 when Figure 1 is executed?\n   \n ",
+        "questionNum": 8,
+        "options": [
+          {
+            "qKey": " A) 2\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) 4\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) 6\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) None\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n      return a + b              # Figure 1 #\n                                ############\n  print(f1())      # Line 1\n  print(f1(2,4))   # Line 2\n  print(f1(2))     # Line 3\n\n09. What is printed by Line 3 when Figure 1 is executed?\n\n ",
+        "questionNum": 9,
+        "options": [
+          {
+            "qKey": " A) 2\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) 4\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) 6\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) None\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": false,
+        "questionText": "\n10. What is returned by the following:\n    [2*i for i in range(4) if i%2 == 1]\n\n ",
+        "questionNum": 10,
+        "options": [
+          {
+            "qKey": " A) [1, 3]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) [0, 4]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) [0, 2, 6]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) [2, 6]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": false,
+        "questionText": "\n11. Given the following code, what is printed by Line 1?\n    def f3(x):\n        x = 2\n        return 2*x\n     \n    x = 4\n    y = f3(3)\n    print(x)  # Line 1\n\n ",
+        "questionNum": 11,
+        "options": [
+          {
+            "qKey": " A) 2\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) 4\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) 8\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) None\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above\n   ",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": false,
+        "questionText": "\n12. Which operation is not allowed on a tuple, T?\n\n ",
+        "questionNum": 12,
+        "options": [
+          {
+            "qKey": " A) a = T[2]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) len(T)\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) T[2] = a\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) x in T\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above\n\f\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n# Figure 2 #\n############\n  # It is likely helpful to diagram these lists\n  L1 = [2,4,6]\n  L2 = [L1,'x','y']\n  L3 = L2[:]\n  L4 = L2\n  L1[0] = 'B'\n  print(L1)   # Line 1\n  print(L2)   # Line 2\n  print(L3)   # Line 3\n  print(L4)   # Line 4\n  print(L2 is L3)  # Line 5\n      \n13. What is printed by Line 1 when Figure 2 is executed?\n\n ",
+        "questionNum": 13,
+        "options": [
+          {
+            "qKey": " A) L1\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) ['B', 4, 6]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) [2, 4, 6]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) [2, 4, 6, 'B'] \n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above.\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n# Figure 2 #\n############\n  # It is likely helpful to diagram these lists\n  L1 = [2,4,6]\n  L2 = [L1,'x','y']\n  L3 = L2[:]\n  L4 = L2\n  L1[0] = 'B'\n  print(L1)   # Line 1\n  print(L2)   # Line 2\n  print(L3)   # Line 3\n  print(L4)   # Line 4\n  print(L2 is L3)  # Line 5\n      \n14. What is printed by Line 2 when Figure 2 is executed?\n\n ",
+        "questionNum": 14,
+        "options": [
+          {
+            "qKey": " A) L3\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) [L1,'x','y']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) [[2, 4, 6], 'x', 'y']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) [['B', 4, 6], 'x', 'y']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above.\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n# Figure 2 #\n############\n  # It is likely helpful to diagram these lists\n  L1 = [2,4,6]\n  L2 = [L1,'x','y']\n  L3 = L2[:]\n  L4 = L2\n  L1[0] = 'B'\n  print(L1)   # Line 1\n  print(L2)   # Line 2\n  print(L3)   # Line 3\n  print(L4)   # Line 4\n  print(L2 is L3)  # Line 5\n      \n15. What is printed by Line 3 when Figure 2 is executed?\n\n ",
+        "questionNum": 15,
+        "options": [
+          {
+            "qKey": " A) L3\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) [L1,'x','y']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) [[2, 4, 6], 'x', 'y']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) [['B', 4, 6], 'x', 'y']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above.\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n# Figure 2 #\n############\n  # It is likely helpful to diagram these lists\n  L1 = [2,4,6]\n  L2 = [L1,'x','y']\n  L3 = L2[:]\n  L4 = L2\n  L1[0] = 'B'\n  print(L1)   # Line 1\n  print(L2)   # Line 2\n  print(L3)   # Line 3\n  print(L4)   # Line 4\n  print(L2 is L3)  # Line 5\n      \n16. What is printed by Line 4 when Figure 2 is executed?\n\n ",
+        "questionNum": 16,
+        "options": [
+          {
+            "qKey": " A) L3\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) [L1,'x','y']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) [[2, 4, 6], 'x', 'y']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) [['B', 4, 6], 'x', 'y']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above.\n ",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n# Figure 2 #\n############\n  # It is likely helpful to diagram these lists\n  L1 = [2,4,6]\n  L2 = [L1,'x','y']\n  L3 = L2[:]\n  L4 = L2\n  L1[0] = 'B'\n  print(L1)   # Line 1\n  print(L2)   # Line 2\n  print(L3)   # Line 3\n  print(L4)   # Line 4\n  print(L2 is L3)  # Line 5\n      \n17. What is printed by Line 5 when Figure 2 is executed?\n    \n ",
+        "questionNum": 17,
+        "options": [
+          {
+            "qKey": " A) True\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) False\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) L2\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) L3\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above.\n\f\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n# Figure 3 #\n############\n  # Note immutables vs. mutables.\n  def f3(x=1, y = [0]):\n      x = 2*x\n      for i in range(x):\n          y.append(i*2+1)\n      return y\n  \n  a = 2\n  b = [1,3]   \n  print(f3(a,b))     # Line 1\n  print(f3())        # Line 2\n  A = [7,8]\n  print(f3(y=A))     # Line 3\n  print(A)           # Line 4\n\n18. What is printed by Line 1 when Figure 3 is executed?\n\n ",
+        "questionNum": 18,
+        "options": [
+          {
+            "qKey": " A) [1, 3, 1, 3, 5, 7]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) [1, 3, 1, 3, 5]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) [0, 1, 3, 5, 7]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) [1, 3, 5, 7] \n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n# Figure 3 #\n############\n  # Note immutables vs. mutables.\n  def f3(x=1, y = [0]):\n      x = 2*x\n      for i in range(x):\n          y.append(i*2+1)\n      return y\n  \n  a = 2\n  b = [1,3]   \n  print(f3(a,b))     # Line 1\n  print(f3())        # Line 2\n  A = [7,8]\n  print(f3(y=A))     # Line 3\n  print(A)           # Line 4\n\n19. What is printed by Line 2 when Figure 3 is executed?\n\n ",
+        "questionNum": 19,
+        "options": [
+          {
+            "qKey": " A) [1] \n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) [0]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) [0, 1, 3]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) [1, 3] \n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n# Figure 3 #\n############\n  # Note immutables vs. mutables.\n  def f3(x=1, y = [0]):\n      x = 2*x\n      for i in range(x):\n          y.append(i*2+1)\n      return y\n  \n  a = 2\n  b = [1,3]   \n  print(f3(a,b))     # Line 1\n  print(f3())        # Line 2\n  A = [7,8]\n  print(f3(y=A))     # Line 3\n  print(A)           # Line 4\n\n20. What is printed by Line 3 when Figure 3 is executed?\n    \n ",
+        "questionNum": 20,
+        "options": [
+          {
+            "qKey": " A) [7, 8]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) [1, 3]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) [7, 8, 1, 3]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) [7, 8, 0, 1, 3]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n# Figure 3 #\n############\n  # Note immutables vs. mutables.\n  def f3(x=1, y = [0]):\n      x = 2*x\n      for i in range(x):\n          y.append(i*2+1)\n      return y\n  \n  a = 2\n  b = [1,3]   \n  print(f3(a,b))     # Line 1\n  print(f3())        # Line 2\n  A = [7,8]\n  print(f3(y=A))     # Line 3\n  print(A)           # Line 4\n\n21. What is printed by Line 4 when Figure 3 is executed?\n    \n ",
+        "questionNum": 21,
+        "options": [
+          {
+            "qKey": " A) [7, 8]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) [1, 3]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) [7, 8, 1, 3]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) [7, 8, 0, 1, 3]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above\n\f\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n# Figure 4 #\n############\n\n  my_dict = {'a':1, 'b':2, 'c':3}\n  \n  for k in my_dict:\n      if my_dict[k] % 2 == 1:\n          my_dict[k] *= 2\n      else:\n          my_dict[k] += 2\n  \n  print(len(my_dict))         # Line 1\n  print(my_dict['b'])         # Line 2\n  print(my_dict['a'])         # Line 3\n  print(3 in my_dict)         # Line 4\n    \n22. What is printed by Line 1 when Figure 4 is executed?\n\n ",
+        "questionNum": 22,
+        "options": [
+          {
+            "qKey": " A) 1\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) 3\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) 4\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) 6\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n# Figure 4 #\n############\n\n  my_dict = {'a':1, 'b':2, 'c':3}\n  \n  for k in my_dict:\n      if my_dict[k] % 2 == 1:\n          my_dict[k] *= 2\n      else:\n          my_dict[k] += 2\n  \n  print(len(my_dict))         # Line 1\n  print(my_dict['b'])         # Line 2\n  print(my_dict['a'])         # Line 3\n  print(3 in my_dict)         # Line 4\n    \n23. What is printed by Line 2 when Figure 4 is executed?\n\n ",
+        "questionNum": 23,
+        "options": [
+          {
+            "qKey": " A) 1\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) 2\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) 4\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) 6\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n# Figure 4 #\n############\n\n  my_dict = {'a':1, 'b':2, 'c':3}\n  \n  for k in my_dict:\n      if my_dict[k] % 2 == 1:\n          my_dict[k] *= 2\n      else:\n          my_dict[k] += 2\n  \n  print(len(my_dict))         # Line 1\n  print(my_dict['b'])         # Line 2\n  print(my_dict['a'])         # Line 3\n  print(3 in my_dict)         # Line 4\n    \n24. What is printed by Line 3 when Figure 4 is executed?\n\n ",
+        "questionNum": 24,
+        "options": [
+          {
+            "qKey": " A) 1\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) 2\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) 4\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) 6\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n# Figure 4 #\n############\n\n  my_dict = {'a':1, 'b':2, 'c':3}\n  \n  for k in my_dict:\n      if my_dict[k] % 2 == 1:\n          my_dict[k] *= 2\n      else:\n          my_dict[k] += 2\n  \n  print(len(my_dict))         # Line 1\n  print(my_dict['b'])         # Line 2\n  print(my_dict['a'])         # Line 3\n  print(3 in my_dict)         # Line 4\n    \n25. What is printed by Line 4 when Figure 4 is executed?\n\n ",
+        "questionNum": 25,
+        "options": [
+          {
+            "qKey": " A) True\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) False\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) 'b':2\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) All of the above.\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above.\n\f\n  def fun1(a_list, a_str):          ",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n      a_list = ['a', 'b', 'c']      # Figure 5 #\n      for val in a_list:            ############\n          a_str = a_str + val\n      return a_str\n  \n  def fun2(a_list, a_str):\n      for c in a_str:\n          if c in a_list:\n              a_list.remove(c)\n          else:\n              a_list.append(c)\n  \n  my_list = ['1', '2', '3']\n  my_str = 'abc123'\n  print(fun1(my_list, my_str)) # Line 1\n  print(my_list)               # Line 2\n  \n  my_list = ['a', 'b', 'c']\n  my_str = 'abc123'\n  print(fun2(my_list, my_str)) # Line 3\n  print(my_list)               # Line 4\n  print(my_str)                # Line 5\n\n26. What does Line 1 print when Figure 5 is executed?\n\n ",
+        "questionNum": 26,
+        "options": [
+          {
+            "qKey": " A) abc\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) 123\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) abc123\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) abc123abc \n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above.\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n      a_list = ['a', 'b', 'c']      # Figure 5 #\n      for val in a_list:            ############\n          a_str = a_str + val\n      return a_str\n  \n  def fun2(a_list, a_str):\n      for c in a_str:\n          if c in a_list:\n              a_list.remove(c)\n          else:\n              a_list.append(c)\n  \n  my_list = ['1', '2', '3']\n  my_str = 'abc123'\n  print(fun1(my_list, my_str)) # Line 1\n  print(my_list)               # Line 2\n  \n  my_list = ['a', 'b', 'c']\n  my_str = 'abc123'\n  print(fun2(my_list, my_str)) # Line 3\n  print(my_list)               # Line 4\n  print(my_str)                # Line 5\n\n27. What does Line 2 print when Figure 5 is executed?\n\n ",
+        "questionNum": 27,
+        "options": [
+          {
+            "qKey": " A) ['a', 'b', 'c']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) ['1', '2', '3']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) ['a', 'b', 'c', '1', '2', '3']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) [1, 2, 3]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above.\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n      a_list = ['a', 'b', 'c']      # Figure 5 #\n      for val in a_list:            ############\n          a_str = a_str + val\n      return a_str\n  \n  def fun2(a_list, a_str):\n      for c in a_str:\n          if c in a_list:\n              a_list.remove(c)\n          else:\n              a_list.append(c)\n  \n  my_list = ['1', '2', '3']\n  my_str = 'abc123'\n  print(fun1(my_list, my_str)) # Line 1\n  print(my_list)               # Line 2\n  \n  my_list = ['a', 'b', 'c']\n  my_str = 'abc123'\n  print(fun2(my_list, my_str)) # Line 3\n  print(my_list)               # Line 4\n  print(my_str)                # Line 5\n\n28. What does Line 3 print when Figure 5 is executed?\n\n ",
+        "questionNum": 28,
+        "options": [
+          {
+            "qKey": " A) ['a', 'b', 'c']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) ['1', '2', '3']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) ['a', 'b', 'c', '1', '2', '3']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) [1, 2, 3]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above.\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n      a_list = ['a', 'b', 'c']      # Figure 5 #\n      for val in a_list:            ############\n          a_str = a_str + val\n      return a_str\n  \n  def fun2(a_list, a_str):\n      for c in a_str:\n          if c in a_list:\n              a_list.remove(c)\n          else:\n              a_list.append(c)\n  \n  my_list = ['1', '2', '3']\n  my_str = 'abc123'\n  print(fun1(my_list, my_str)) # Line 1\n  print(my_list)               # Line 2\n  \n  my_list = ['a', 'b', 'c']\n  my_str = 'abc123'\n  print(fun2(my_list, my_str)) # Line 3\n  print(my_list)               # Line 4\n  print(my_str)                # Line 5\n\n29. What does Line 4 print when Figure 5 is executed?\n\n ",
+        "questionNum": 29,
+        "options": [
+          {
+            "qKey": " A) ['a', 'b', 'c']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) ['1', '2', '3']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) ['b', 'c', '1', '2', '3']\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) [1, 2, 3]\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above.\n",
+            "qVal": false
+          }
+        ]
+      },
+      {
+        "state": 3,
+        "isPartOfMQ": true,
+        "questionText": "############\n      a_list = ['a', 'b', 'c']      # Figure 5 #\n      for val in a_list:            ############\n          a_str = a_str + val\n      return a_str\n  \n  def fun2(a_list, a_str):\n      for c in a_str:\n          if c in a_list:\n              a_list.remove(c)\n          else:\n              a_list.append(c)\n  \n  my_list = ['1', '2', '3']\n  my_str = 'abc123'\n  print(fun1(my_list, my_str)) # Line 1\n  print(my_list)               # Line 2\n  \n  my_list = ['a', 'b', 'c']\n  my_str = 'abc123'\n  print(fun2(my_list, my_str)) # Line 3\n  print(my_list)               # Line 4\n  print(my_str)                # Line 5\n\n30. What does Line 5 print when Figure 5 is executed?\n\n ",
+        "questionNum": 30,
+        "options": [
+          {
+            "qKey": " A) abc\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " B) 123\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " C) abc123\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " D) abc123abc\n   ",
+            "qVal": false
+          },
+          {
+            "qKey": " E) None of the above.\n",
+            "qVal": false
+          }
+        ]
+      }
+    ]
+  }
+}

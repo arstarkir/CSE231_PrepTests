@@ -48,14 +48,72 @@ namespace CSE231_PrepTests
             TestTimer.Interval = 1000;
             TestTimer.Tick += new EventHandler(OnTimedEvent);
             TestTimer.Start();
-
+            FromSave();
         }
+        class AnswerItem
+        {
+            public int aKey { get; set; }
+            public string aVal { get; set; }
+        }
+        void FromSave()
+        {
+            string fileName = "SaveData.json";
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
+
+            string jsonString = File.ReadAllText(filePath);
+            JObject rss = JObject.Parse(jsonString);
+
+            string name = (string)rss["name"];
+            string numOfQ = (string)rss["numOfQ"];
+            Button button = new Button();
+            JObject testInfoJson = (JObject)rss["testInfo"];
+
+            var answersList = testInfoJson["answers"].ToObject<List<AnswerItem>>();
+            var answersDict = answersList.ToDictionary(item => item.aKey, item => item.aVal);
+
+            string nameT = (string)testInfoJson["name"];
+            string genInfo = (string)testInfoJson["genInfo"];
+            string time = (string)testInfoJson["Time"];
+            Dictionary<int, string> answers = answersDict;
+            int qFinished = (int)testInfoJson["qFinished"];
+            int numOfQuestions = (int)testInfoJson["numOfQuestions"];
+            bool wasStarted = (bool)testInfoJson["wasStarted"];
+
+            JArray questionsArray = (JArray)testInfoJson["questions"];
+            List<Question> questions = new List<Question>();
+
+            foreach (JObject questionJson in questionsArray)
+            {
+                string questionText = questionJson.Value<string>("questionText");
+                int questionNum = questionJson.Value<int>("questionNum");
+                bool isPartOfMQ = questionJson.Value<bool>("isPartOfMQ");
+                string stateStr = questionJson["state"].ToString();
+                AnswerdQ state = (AnswerdQ)Enum.Parse(typeof(AnswerdQ), stateStr);
+
+                JArray optionsArray = (JArray)questionJson["options"];
+                Dictionary<string, bool> options = optionsArray.ToDictionary(
+                    opt => opt["qKey"].ToString(),
+                    opt => (bool)opt["qVal"]
+                );
+
+                Question question = new Question(questionText, options, isPartOfMQ, questionNum);
+                question.state = state;
+                questions.Add(question);
+            }
+            //Stopwatch tempStopwatch = new Stopwatch();
+            //tempStopwatch.Elapsed = time;
+            TestInfo testInfo = new TestInfo(nameT, genInfo, answers, qFinished, numOfQuestions, wasStarted, questions);
+
+            tests.Add(testInfo);
+            updateTable();
+        }
+
 
         private void OnTimedEvent(object sender, EventArgs e)
         {
             if(timerEx)
                 timer.Text = curTest.TimeSpent.Elapsed.ToString(@"hh\:mm\:ss");
-
+            //curTest.TimeSpent.Elapsed
         }
 
         private Button CloneButton(Button org, EventHandler whenClick)
@@ -95,6 +153,7 @@ namespace CSE231_PrepTests
                     new JObject(
                         new JProperty("name", item.test.name),
                         new JProperty("genInfo", item.test.genInfo),
+                        new JProperty("Time", item.test.TimeSpent.Elapsed),
                         new JProperty("answers",
                             new JArray(
                                 from a in item.test.answers
@@ -119,8 +178,17 @@ namespace CSE231_PrepTests
                                             new JProperty("qKey", o.Key),
                                             new JProperty("qVal", o.Value)
                                             )))))))));
+
+                string jsonContent = rss.ToString();
+
+                // Define the path for the file in the current working directory
+                string fileName = "SaveData.json";
+                string filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName);
+
+                // Write the JSON string to a file
+                File.WriteAllText(filePath, jsonContent);
                 //if (!File.Exists("CSE231_PrepTests_save_info.txt")) // If file does not exists
-                //{
+                //{ 
                 //    File.Create("CSE231_PrepTests_save_info.txt").Close(); // Create file
                 //    using (StreamWriter sw = File.AppendText("CSE231_PrepTests_save_info.txt"))
                 //    {
@@ -532,6 +600,16 @@ namespace CSE231_PrepTests
 
         private void timer2_Tick(object sender, EventArgs e)
         {
+        }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            if (curTest != null && curTest.TimeSpent.IsRunning)
+            {
+                curTest.TimeSpent.Stop();
+            }
+            
+            base.OnFormClosed(e);
         }
     }
 }

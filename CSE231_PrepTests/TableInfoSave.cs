@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace CSE231_PrepTests
         public string numOfQ;
         public Button button;
         public TestInfo test;
+        public Stopwatch TimeSpent;
         public TableInfoSave(string name, string numOfQ, Button button, ref TestInfo test)
         {
             this.name = name;   
