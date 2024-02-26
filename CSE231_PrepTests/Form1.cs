@@ -62,7 +62,7 @@ namespace CSE231_PrepTests
 
             string jsonString = File.ReadAllText(filePath);
             JObject rss = JObject.Parse(jsonString);
-
+            
             string name = (string)rss["name"];
             string numOfQ = (string)rss["numOfQ"];
             Button button = new Button();
@@ -73,7 +73,9 @@ namespace CSE231_PrepTests
 
             string nameT = (string)testInfoJson["name"];
             string genInfo = (string)testInfoJson["genInfo"];
-            string time = (string)testInfoJson["Time"];
+
+            string totalTimeString = (string)testInfoJson["Time"];
+
             Dictionary<int, string> answers = answersDict;
             int qFinished = (int)testInfoJson["qFinished"];
             int numOfQuestions = (int)testInfoJson["numOfQuestions"];
@@ -100,19 +102,19 @@ namespace CSE231_PrepTests
                 question.state = state;
                 questions.Add(question);
             }
-            //Stopwatch tempStopwatch = new Stopwatch();
-            //tempStopwatch.Elapsed = time;
-            TestInfo testInfo = new TestInfo(nameT, genInfo, answers, qFinished, numOfQuestions, wasStarted, questions);
-
+            TestInfo testInfo = new TestInfo(nameT, genInfo, answers, qFinished, numOfQuestions, wasStarted, questions, totalTimeString);
             tests.Add(testInfo);
+
             updateTable();
         }
-
 
         private void OnTimedEvent(object sender, EventArgs e)
         {
             if(timerEx)
-                timer.Text = curTest.TimeSpent.Elapsed.ToString(@"hh\:mm\:ss");
+            {
+                TimeSpan timeSpan1 = TimeSpan.ParseExact(curTest.prevTimeSpent, @"hh\:mm\:ss\.fffffff", CultureInfo.InvariantCulture);
+                timer.Text = (curTest.TimeSpent.Elapsed + timeSpan1).ToString(@"hh\:mm\:ss");
+            }
             //curTest.TimeSpent.Elapsed
         }
 
@@ -131,21 +133,14 @@ namespace CSE231_PrepTests
         }
         private void Form1_FormClosing(Object sender, FormClosingEventArgs e)
         {
-            //public string name = "Not Found";
-            //string genInfo;
-            //public Dictionary<int, string> answers = new Dictionary<int, string>();
-            //public int qFinished = 0;
-            //public int numOfQuestions;
-            //public bool wasStarted = false;
-            //public List<Question> questions = new List<Question>();
-            //public AnswerdQ state;
-            //bool isPartOfMQ = false;
-            //public string questionText = "No Question Found";
-            //public int questionNum = 0;
-            //public Dictionary<string, bool> options = new Dictionary<string, bool>();
+            
             foreach (TableInfoSave item in testTableInfoStorage)
             {
-                                JObject rss =
+                TimeSpan timeSpan1 = TimeSpan.ParseExact(item.test.TimeSpent.Elapsed.ToString(), @"hh\:mm\:ss\.fffffff", CultureInfo.InvariantCulture);
+                TimeSpan timeSpan2 = TimeSpan.ParseExact(item.test.prevTimeSpent, @"hh\:mm\:ss\.fffffff", CultureInfo.InvariantCulture);
+                TimeSpan totalTimeSpan = timeSpan1 + timeSpan2;
+                string totalTimeString = totalTimeSpan.ToString(@"hh\:mm\:ss\.fffffff");
+                JObject rss =
                 new JObject(
                     new JProperty("name", item.name),
                     new JProperty("numOfQ", item.numOfQ),
@@ -153,7 +148,7 @@ namespace CSE231_PrepTests
                     new JObject(
                         new JProperty("name", item.test.name),
                         new JProperty("genInfo", item.test.genInfo),
-                        new JProperty("Time", item.test.TimeSpent.Elapsed),
+                        new JProperty("Time", totalTimeString),
                         new JProperty("answers",
                             new JArray(
                                 from a in item.test.answers

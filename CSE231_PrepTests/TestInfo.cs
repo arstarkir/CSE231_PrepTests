@@ -20,13 +20,14 @@ namespace CSE231_PrepTests
         public int qFinished = 0;
         public int numOfQuestions;
         public bool wasStarted = false;
+        public string prevTimeSpent = "00:00:00.0000000";
         public Stopwatch TimeSpent = new Stopwatch();
         public List<Question> questions = new List<Question>();
         public TestInfo()
         {
 
         }
-        public TestInfo(string name, string genInfo, Dictionary<int, string> answers, int qFinished, int numOfQuestions, bool wasStarted, List<Question> questions, Stopwatch TimeSpent = null)
+        public TestInfo(string name, string genInfo, Dictionary<int, string> answers, int qFinished, int numOfQuestions, bool wasStarted, List<Question> questions,string prevTimeSpent = "00:00:00.0000000")
         {
             this.name = name;
             this.genInfo = genInfo;
@@ -35,10 +36,7 @@ namespace CSE231_PrepTests
             this.numOfQuestions = numOfQuestions;
             this.wasStarted = wasStarted;
             this.questions = questions;
-            if(TimeSpent == null)
-                this.TimeSpent = new Stopwatch();
-            else
-                this.TimeSpent = TimeSpent;
+            this.prevTimeSpent = prevTimeSpent;
         }
 
         public void DissectTest(string filePath, string text)
