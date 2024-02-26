@@ -112,12 +112,12 @@
           "aVal": "AC"
         }
       ],
-      "qFinished": 1,
+      "qFinished": 0,
       "numOfQuestions": 26,
-      "wasStarted": true,
+      "wasStarted": false,
       "questions": [
         {
-          "state": 1,
+          "state": 3,
           "isPartOfMQ": false,
           "questionText": "01.  If x = 4 and y = 5, what is x//y?\n\n  ",
           "questionNum": 1,
@@ -2121,7 +2121,7 @@
     "testInfo": {
       "name": "Exam1b-17s-Enbody",
       "genInfo": "\nDirections:\r\n\r\na. DO NOT OPEN YOUR EXAM BOOKLET UNTIL YOU HAVE BEEN TOLD TO BEGIN.\r\n\r\nb. This exam booklet contains 25 questions, each of which will be weighted\r\nequally at 4 points each.   The total points for the exam is 100 points.\r\n\r\nc. You may use one 8.5\" x 11\" note sheet during the exam.  No other reference\r\nmaterials or electronic devices may be used during the examination, i.e. no\r\ncalculators, cell phones, mp3 players, etc. Paper dictionaries are allowed.\r\n\r\nd. Questions will not be interpreted during the examination.\r\n\r\ne. You should choose the single best alternative for each question, even if\r\nyou believe that a question is ambiguous or contains a typographic\r\nerror.  If a question has more than one best answer, credit will be\r\ngiven for any of the correct answers.\r\n\r\nf. Please fill in the requested information at the top of this exam booklet.\r\n\r\ng. Use a #2 pencil to encode any information on the OMR form.\r\n\r\nh. Please encode the following on the OMR form:\r\n\r\n     -- Last name and first initial\r\n     -- MSU PID\r\n     -- Exam form (1 B)\r\n\r\ni. Please sign the OMR form.\r\n\r\nj. Only answers recorded on your OMR form for multiple choice questions will be \r\ncounted for credit.  Completely erase any responses on the OMR form that you \r\nwish to delete.\r\n\r\nk. You must turn in this exam booklet and the OMR form when you have completed\r\nthe exam.  When leaving, please be courteous to those still taking the exam.\r\n\r",
-      "Time": "00:00:08.1250665",
+      "Time": "00:00:00.0000000",
       "answers": [
         {
           "aKey": 1,
@@ -2224,12 +2224,12 @@
           "aVal": "C"
         }
       ],
-      "qFinished": 3,
+      "qFinished": 0,
       "numOfQuestions": 25,
-      "wasStarted": true,
+      "wasStarted": false,
       "questions": [
         {
-          "state": 1,
+          "state": 3,
           "isPartOfMQ": false,
           "questionText": "01.  What is printed by \r\n         print(3+3**2)\r\n\r\n  ",
           "questionNum": 1,
@@ -2257,7 +2257,7 @@
           ]
         },
         {
-          "state": 1,
+          "state": 3,
           "isPartOfMQ": false,
           "questionText": "\n02.  What is the value returned by 9 % 5 ?\r\n\r\n  ",
           "questionNum": 2,
@@ -2285,7 +2285,7 @@
           ]
         },
         {
-          "state": 1,
+          "state": 3,
           "isPartOfMQ": false,
           "questionText": "\n03.  If x = 23 and y = 8, what is x//y ?\r\n\r\n  ",
           "questionNum": 3,

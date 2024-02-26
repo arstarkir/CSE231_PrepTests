@@ -48,7 +48,8 @@ namespace CSE231_PrepTests
             TestTimer.Interval = 1000;
             TestTimer.Tick += new EventHandler(OnTimedEvent);
             TestTimer.Start();
-            FromSave();
+            if(File.Exists(Path.Combine(Directory.GetCurrentDirectory(), "SaveData.json")))
+                FromSave();
         }
         class AnswerItem
         {
@@ -318,7 +319,8 @@ namespace CSE231_PrepTests
             timer.Name = "label2";
             if(timer.Text== "")
             {
-                timer.Text = "00:00:00";
+                TimeSpan timeSpan1 = TimeSpan.ParseExact(curTest.prevTimeSpent, @"hh\:mm\:ss\.fffffff", CultureInfo.InvariantCulture);
+                timer.Text = timeSpan1.ToString(@"hh\:mm\:ss");
             }
             timer.Text = timer.Text;
             timer.Location = new System.Drawing.Point(questionText.Location.X + 700, questionText.Location.Y);
@@ -329,8 +331,6 @@ namespace CSE231_PrepTests
             timer.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             timer.Click += new System.EventHandler(label1_Click);
             Controls.Add(timer);
-
-
             // 
             // timerB
             // 
