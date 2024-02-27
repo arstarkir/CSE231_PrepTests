@@ -17,6 +17,7 @@ using System.Timers;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CSE231_PrepTests
 {
@@ -274,7 +275,6 @@ namespace CSE231_PrepTests
             Controls.Remove(prev);
             Controls.Remove(next);
             Controls.Remove(checkAns);
-
         }
         private void AddItemTable(TableLayoutPanel table, string name, string numOfQ, Button button, Button button1, TestInfo test)
         {
@@ -303,7 +303,22 @@ namespace CSE231_PrepTests
         }
         private void del_Click(object sender, EventArgs e)
         {
-            tests.Remove(tests[Int32.Parse(sender.ToString().Remove(0, sender.ToString().LastIndexOf("t") + "t".Length))]);
+            for (int i = 0; i < testTableInfoStorage.Count; i++)
+            {
+                if(!testTableInfoStorage[i].SavesThisTest(tests[Int32.Parse(sender.ToString().Remove(0, sender.ToString().LastIndexOf("t") + "t".Length))]))
+                {
+                    testTableInfoStorage[i].button.Text = "Start Test" + (tests.Count - 1).ToString();
+                    testTableInfoStorage[i].button1.Text = "Delete Test" + (tests.Count - 1).ToString();
+                    AddItemTable(tableLayoutPanel2, testTableInfoStorage[i].name, testTableInfoStorage[i].numOfQ, testTableInfoStorage[i].button, testTableInfoStorage[i].button1, testTableInfoStorage[i].test);
+                }
+                else
+                {
+                    testTableInfoStorage.Remove(testTableInfoStorage[i]);
+                    tests.Remove(tests[Int32.Parse(sender.ToString().Remove(0, sender.ToString().LastIndexOf("t") + "t".Length))]);
+                }
+            }
+            Controls.Add(tableLayoutPanel2);
+            InitializeComponent();
         }
         void genQ()
         {

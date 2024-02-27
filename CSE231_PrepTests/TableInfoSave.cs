@@ -24,5 +24,10 @@ namespace CSE231_PrepTests
             this.button1 = button1;
             this.test = test;
         }
+
+        public bool SavesThisTest(TestInfo test)
+        {
+            return (this.test == test);
+        }
     }
 }
