@@ -238,8 +238,19 @@ namespace CSE231_PrepTests
             button.UseVisualStyleBackColor = true;
             button.Click += new System.EventHandler(start_Click);
             TestInfo test = tests[tests.Count - 1];
+
+            Button button1 = new Button();
+            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button1.Location = new Point(button.Location.X + 100, button.Location.Y );
+            button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.64F);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(102, 40);
+            button1.TabIndex = 3;
+            button1.Text = "Delete Test" + (tests.Count - 1).ToString();
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += new System.EventHandler(del_Click);
             //AddItemTable(tableLayoutPanel2,tests[tests.Count-1].name, tests[tests.Count-1].numOfQuestions.ToString(), button, test);
-            testTableInfoStorage.Add(new TableInfoSave(tests[tests.Count - 1].name, tests[tests.Count - 1].numOfQuestions.ToString(), button, ref test));
+            testTableInfoStorage.Add(new TableInfoSave(tests[tests.Count - 1].name, tests[tests.Count - 1].numOfQuestions.ToString(), button, ref test, button1));
 
 
             Size TempCS = ClientSize;
@@ -252,7 +263,7 @@ namespace CSE231_PrepTests
             this.Controls.Clear();
             for (int i = 0; i < testTableInfoStorage.Count; i++)
             {
-                AddItemTable(tableLayoutPanel2, testTableInfoStorage[i].name, testTableInfoStorage[i].numOfQ, testTableInfoStorage[i].button, testTableInfoStorage[i].test);
+                AddItemTable(tableLayoutPanel2, testTableInfoStorage[i].name, testTableInfoStorage[i].numOfQ, testTableInfoStorage[i].button, button1, testTableInfoStorage[i].test);
             }
             Controls.Add(tableLayoutPanel2);
             InitializeComponent();
@@ -265,13 +276,14 @@ namespace CSE231_PrepTests
             Controls.Remove(checkAns);
 
         }
-        private void AddItemTable(TableLayoutPanel table, string name, string numOfQ, Button button, TestInfo test)
+        private void AddItemTable(TableLayoutPanel table, string name, string numOfQ, Button button, Button button1, TestInfo test)
         {
             RowStyle temp = table.RowStyles[table.RowCount - 1];
             table.RowCount++;
             table.RowStyles.Add(new RowStyle(temp.SizeType, temp.Height));  
             table.Controls.Add(new Label() { Text = name }, 0, table.RowCount - 1);
             table.Controls.Add(new Label() { Text = numOfQ }, 1, table.RowCount - 1);
+            table.Controls.Add(button1, 2, table.RowCount - 1);
             table.Controls.Add(button, 2, table.RowCount - 1);
             table.Controls.Add(new Label() { Text = test.qFinished.ToString() }, 2, table.RowCount - 1);
         }
@@ -288,6 +300,10 @@ namespace CSE231_PrepTests
             curTest.wasStarted = true;
             TestTimer.Tick += new System.EventHandler(this.timer2_Tick);
             genQ();
+        }
+        private void del_Click(object sender, EventArgs e)
+        {
+            tests.Remove(tests[Int32.Parse(sender.ToString().Remove(0, sender.ToString().LastIndexOf("t") + "t".Length))]);
         }
         void genQ()
         {
@@ -518,7 +534,7 @@ namespace CSE231_PrepTests
             this.Controls.Clear();
             for (int i = 0; i < testTableInfoStorage.Count; i++)
             {
-                AddItemTable(tableLayoutPanel2, testTableInfoStorage[i].name, testTableInfoStorage[i].numOfQ, testTableInfoStorage[i].button, testTableInfoStorage[i].test);
+                AddItemTable(tableLayoutPanel2, testTableInfoStorage[i].name, testTableInfoStorage[i].numOfQ, testTableInfoStorage[i].button, testTableInfoStorage[i].button1, testTableInfoStorage[i].test);
             }
             Controls.Add(tableLayoutPanel2);
             InitializeComponent();

@@ -114,7 +114,7 @@
       ],
       "qFinished": 0,
       "numOfQuestions": 26,
-      "wasStarted": true,
+      "wasStarted": false,
       "questions": [
         {
           "state": 3,
@@ -1010,7 +1010,7 @@
       ],
       "qFinished": 0,
       "numOfQuestions": 40,
-      "wasStarted": true,
+      "wasStarted": false,
       "questions": [
         {
           "state": 3,
