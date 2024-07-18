@@ -4,7 +4,7 @@ CSE231 PrepTests aids students in preparing for CSE231 exams by splitting inputt
 
 #Tools
 
-[Eng] Made with WinForms
+Made with WinForms
 
 [![Made with WinForms](https://img.shields.io/badge/.NET-7.0-512BD4.svg?style=flat-square&logo=dot-net)](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
 
