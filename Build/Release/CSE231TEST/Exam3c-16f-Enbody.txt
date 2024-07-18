@@ -1,0 +1,538 @@
+CSE 231 FS16             Last name (printed):  ________________________________
+
+Exam #3                  First name (printed): ________________________________
+
+Form 3 C                 
+
+
+Directions:
+
+a. DO NOT OPEN YOUR EXAM BOOKLET UNTIL YOU HAVE BEEN TOLD TO BEGIN.
+
+b. This exam booklet contains 40 questions, each of which will be weighted
+equally at 5 points each.   The total points for the exam is 200 points.
+
+c. You may use one 8.5" x 11" note sheet during the exam.  No other reference
+materials or electronic devices may be used during the examination, i.e. no
+calculators, cell phones, mp3 players, etc.. Paper dictionaries are allowed.
+
+d. Questions will not be interpreted during the examination.
+
+e. You should choose the single best alternative for each question, even if
+you believe that a question is ambiguous or contains a typographic
+error.  If a question has more than one best answer, credit will be
+given for any of the correct answers.
+
+f. Please fill in the requested information at the top of this exam booklet.
+
+g. Use a #2 pencil to encode any information on the OMR form.
+
+h. Please encode the following on the OMR form:
+
+     -- Last name and first initial
+     -- MSU PID
+     -- Exam form (3 C)
+
+i. Please sign the OMR form.
+
+j. Only answers recorded on your OMR form for multiple choice questions will be 
+counted for credit.  Completely erase any responses on the OMR form that you 
+wish to delete.
+
+k. You must turn in this exam booklet and the OMR form when you have completed
+the exam.  When leaving, please be courteous to those still taking the exam.
+
+Form 3C
+1    2    3    4    5    6    7    8    9    10   11   12   13   14   15
+B    B    B    D    C    AC   D    D    B    A    A    B    D    D    C
+
+16   17   18   19   20   21   22   23   24   25   26   27   28   29   30
+C    A    B    B    A    A    B    B    C    C    C    E    A    A    C
+
+31   32   33   34   35   36   37   38   39   40
+A    BC   D    E    A    ABCD C    B    B    B
+
+01. Given: x = 12
+    what is printed by: print(0 <= x <= 12)
+
+      A) False
+      B) True
+      C) 12
+      D) 0
+      E) None of the above. 
+	 
+02. What is printed by: print(5**2)
+
+     A) 10
+     B) 25
+     C) 5
+     D) True
+     E) None of the above
+
+03.  Given
+        b = input("Input a bool (True/False): ")
+     What is the type of b if True is input at the prompt?
+
+     A) float
+     B) str
+     C) int
+     D) bool
+     E) None of the above.	  
+	  
+04. Given: s = 'Hello'
+    what is printed by: print(s.find('h'))
+
+    A) None
+    B) ''
+    C) 0
+    D) -1
+    E) None of the above 	
+	
+05. What is printed by: print(2 and 0)
+
+      A) False
+      B) True
+      C) 0
+      D) 2
+      E) None of the above.
+	  
+06. Given D = {'a': 11}
+    What code changes D to be {'a': 1}?
+
+     A) D['a'] -= 10
+ 
+     C) D['a'] = D.get('a',0) - 10
+
+     B) try:
+            D['a'] += 1
+        except KeyError:
+            D['a'] = 1
+
+     D) All of the above
+
+     E) None of the above.	  
+
+07. Given s = {1,2,3}
+    what is printed by print(s.add(4))
+
+     A) {1, 2, 3, 4}
+     B) {1, 2, 3}
+     C) {}
+     D) None
+     E) None of the above
+
+08. Given: L1 = [4,5] and L2 = [1,2,3]
+    what is the value of L after this operation: L = L1 + L2
+
+    A) [4,5,[1,2,3]]
+    B) [[4,5],[1,2,3]]
+    C) [1,2,3,4,5]
+    D) [4,5,1,2,3]
+    E) None of the above
+	
+09. Given s = "To be, or not to be, that is the question:"
+    which code produces the following?
+   ['To be', 'or not to be', 'that is the question']
+
+    A) s.strip(',:').split(',')
+    B) s.strip(',:').split(', ')
+    C) s.split().strip()
+    D) s.split(',').strip()
+    E) None of the above.  
+
+10. What is the output when the following for loop is executed?
+
+    for i in range(3,9,3):
+	    print(i, end = ' ')
+  
+    A) 3 6 
+    B) 3 6 9 
+    C) 3 4 5 6 7 8 
+    D) 3 4 5 6 7 8 9 
+    E) None of the above
+	
+11. Given: x = []
+    what is printed by: 
+    if x:
+        print("Here")
+    else:
+        print("There")
+
+      A) There
+      B) Here
+      C) None of the above. 	  
+	  
+12. Consider this code
+
+  L1 = [1,2,3]
+  L2 = [1,L1[:],2,3]
+  L1.append(4)
+  print(L2)   # Line 1
+
+  What is printed by Line 1?
+
+   A) [1, [1, 2, 3, 4], 2, 3]
+   B) [1, [1, 2, 3], 2, 3]
+   C) [1,L1[:],2,3]
+   D) [1, 2, 3, 4] 
+   E) None of the above
+
+13. Given the list L = [('a', 1), ('b', 7), ('c', 5), ('d', 2)]
+    what code generates D = {'a': 1, 'b': 7, 'c': 5, 'd': 2}?
+
+    A) D = dict([(x,y) for x,y in L])
+    B) D = dict(L)
+    C) D = { x:y for x,y in L }
+    D) All of the above
+    E) None of the above	
+
+14. What does this expression return?
+        {a*b for a in range(3) for b in range(3)}
+   
+    A) {0, 0, 0, 0, 0, 1, 2, 3, 0, 2, 4, 6, 0, 3, 6, 9}
+    B) {0, 0, 0, 0, 1, 2, 0, 2, 4}
+    C) {0, 1, 2, 3, 4, 6, 9}
+    D) {0, 1, 2, 4}
+    E) None of the above
+	
+15. Given: S1 = {1,2,3} and S2 = {1,3,5}
+    what is the value of S after this operation: S = S1 ^ S2
+
+    A) {}
+    B) {1, 3}
+    C) {2, 5}
+    D) {1, 2, 3, 5}
+    E) None of the above
+
+  L = [1,2,3,4,5,6,7,8,9]       ############
+  i = 0                         # Figure 1 #
+  s = ''                        ############
+  while i < len(L):
+      if i%2:
+          i += 1
+          continue
+      elif i>8:
+          break
+      s += str(L[i])
+      i += 2
+  else:
+      print("else executed")  # Line 1
+  
+  print(s)  # Line 2
+
+16. What is the output of Line 2 when the program in Figure 1 is executed?
+
+   A) 1357
+   B) 3579
+   C) 13579
+   D) 02468
+   E) None of the above.
+
+17. When the program in Figure 1 is run Line 1 is executed.
+
+   A) True
+   B) False
+
+############
+# Figure 2 #
+############    
+
+  def f(x,y):                   
+      y += 1                    
+      x[y] += 1                 
+  
+  A = {1:0,2:0}
+  B = 1
+  f(A,B)
+  print(A)  # Line 1
+  print(B)  # Line 2
+      
+18. When the code in Figure 2 is run what is printed by Line 1?
+
+     A) {1:0,2:0}
+     B) {1:0,2:1}
+     C) {1:1,2:0}
+     D) None
+     E) None of the above.
+
+19. When the code in Figure 2 is run what is printed by Line 2?
+
+     A) 2
+     B) 1
+     C) None
+     D) Nothing is printed
+     E) None of the above.
+
+
+  class MyClass (object):
+      def __init__(self, L=None):             ############
+          if L:                               # Figure 3 #
+              self.L = sorted(L)              ############
+          else:
+              self.L = []
+  
+      def __str__(self):
+          s = 'L: '
+          for i in self.L:
+              s += str(i) + " "
+          return s
+  
+      def method1(self,x):
+          self.L.append(x)
+  
+      def method2(self,x=0):
+          for i,j in enumerate(self.L):
+              self.L[i] = j*x
+          return MyClass(self.L)
+              
+  inst1 = MyClass()
+  print(inst1)                  # Line 1
+  list1 = [1,5,3] 
+  inst2 = MyClass(list1)
+  print(inst2)                  # Line 2
+  inst2.method1(4)       
+  print(inst2)                  # Line 3
+  print(inst2.method2(2))       # Line 4
+  set1 = {'4','3','6'}
+  inst3 = MyClass(set1)
+  print(inst3.method2(2))       # Line 5
+    
+20. What is the output of Line 1 when the program in Figure 3 is executed?
+
+   A) L:
+   B) L: None
+   C) L: []
+   D) L: " "
+   E) None of the above.
+
+21. What is the output of Line 2 when the program in Figure 3 is executed?
+
+   A) L: 1 3 5
+   B) L: 1 5 3
+   C) L: [1, 3, 5]
+   D) L: [1, 5, 3]
+   E) None of the above.
+
+22. What is the output of Line 3 when the program in Figure 3 is executed?
+
+   A) L: 1 3 4 5
+   B) L: 1 3 5 4
+   C) L: [1, 3, 4, 5]
+   D) L: [1, 3, 5, 4]
+   E) None of the above.
+
+23. What is the output of Line 4 when the program in Figure 3 is executed?
+
+   A) L: 2 6 10 8
+   B) L: 2 6 8 10
+   C) L: [2, 6, 10, 8]
+   D) L: [2, 6, 8, 10]
+   E) None of the above.
+
+24. What is the output of Line 5 when the program in Figure 3 is executed?
+
+   A) L: 3 4 6
+   B) L: 6 8 12
+   C) L: 33 44 66
+   D) L: [4, 3, 6]
+   E) None of the above.
+
+  class TestClass(object):
+      def __init__(self,L=None):         ############
+          self.L = []                    # Figure 4 #
+          if L:                          ############
+              for i in L:
+                  if i:
+                      self.L.append(i)
+		      self.L.sort()
+
+      def __add__(self,param):
+          if type(param) == TestClass:
+              self.L.extend(param.L)
+              return TestClass(self.L)
+          else:
+              return self.L + param
+
+      def __str__(self):
+          return 'L: {}'.format(self.L)
+
+  inst1 = TestClass([-1,0,0,1,2,3])
+  print(inst1)                               # Line 1
+  inst2 = TestClass([4,2,3])
+  sum_inst_1 = inst1 + inst2
+  sum_inst_2 = inst2 + [7,8,9]               # Line X
+  print(inst1)                               # Line 2
+  print(sum_inst_1)                          # Line 3
+  print(sum_inst_2)                          # Line 4
+  print(isinstance(sum_inst_1,TestClass))    # Line 5
+
+25. What is printed by Line 1 when Figure 4 is executed?
+
+    A) [-1, 1, 2, 3]
+    B) [-1, 0, 1, 2, 3]
+    C) L: [-1, 1, 2, 3]
+    D) L: [-1, 0, 1, 2, 3]
+    E) None of the above
+
+26. What is printed by Line 2 when Figure 4 is executed?
+
+    A) [-1, 1, 2, 3, 2, 3, 4]
+    B) [-1, 0, 1, 2, 2, 3, 3, 4]
+    C) L: [-1, 1, 2, 3, 2, 3, 4]
+    D) L: [-1, 0, 1, 2, 2, 3, 3, 4]
+    E) None of the above
+
+27. What is printed by Line 3 when Figure 4 is executed?
+
+    A) [-1, 1, 2, 3, 2, 3, 4]
+    B) [-1, 0, 1, 2, 2, 3, 3, 4]
+    C) L: [-1, 1, 2, 3, 2, 3, 4]
+    D) L: [-1, 0, 1, 2, 2, 3, 3, 4]
+    E) None of the above
+
+28. What is printed by Line 4 when Figure 4 is executed?
+
+    A) [2, 3, 4, 7, 8, 9] 
+    B) [2, 3, 4, [7, 8, 9]]
+    C) L: [2, 3, 4, 7, 8, 9]
+    D) L: [2, 3, 4, [7, 8, 9]]
+    E) None of the above
+
+29. What is printed by Line 5 when Figure 4 is executed?
+
+    A) True          B) False
+
+30. Consider the class in Figure 4. What happens when the following expression is executed?
+    Note the order has been switched from the similar expression Line X in Figure 4.
+
+   [7,8,9] + inst2
+
+    A) The expression evaluates without an error and returns a list.
+    B) The expression evaluates without an error and returns a TestClass instance.
+    C) The expression generates an error, but can be fixed by adding an __radd__ method
+       to the class TestClass.
+    D) The expression generates an error and there is no code that can be added to
+       class TestClass that can prevent an error.
+    E) None of the above
+
+  L = [10,20,30]                          ############
+  s = input("Input something: ")          # Figure 5 #
+  try:                                    ############
+      x = float(s)
+      y = int(s)      
+      z = L[y]          # Line 1
+  except ValueError:
+      print("Oops_1")   # Line 2
+  except IndexError:
+      print("Oops_2")   # Line 3
+  except KeyError:
+      print("Oops_3")   # Line 4
+  else:
+      print(x,y,z)      # Line 5
+  finally:
+      print("Finally Executed") # Line 6
+    
+31. What input will cause Line 1 to be executed without error when Figure 5 is executed?
+
+     A) 1
+     B) 1.0
+     C) 1.5
+     D) 3
+     E) None of the above.
+
+32. What input will cause Line 2 to be printed when Figure 5 is executed?
+
+     A) 1
+     B) 1.0
+     C) 1.5
+     D) 3
+     E) None of the above.
+
+33. What input will cause Line 3 to be printed when Figure 5 is executed?
+
+     A) 1
+     B) 1.0
+     C) 1.5
+     D) 3
+     E) None of the above.
+
+34. What input will cause Line 4 to be executed when Figure 5 is executed?
+
+     A) 1
+     B) 1.0
+     C) 1.5
+     D) 3
+     E) None of the above.
+
+35. What input will cause Line 5 to be executed when Figure 5 is executed?
+
+     A) 1
+     B) 1.0
+     C) 1.5
+     D) 3
+     E) None of the above.
+
+36. What input will cause Line 6 to be executed when Figure 5 is executed?
+
+     A) 1
+     B) 1.0
+     C) 1.5
+     D) 3
+     E) None of the above.
+
+  class Shape(object):                    ############
+      def __init__(self,n="Shape"):       # Figure 6 #
+          self.name = n                   ############
+      def __str__(self):
+          return self.name
+
+  class Polygon(Shape):
+      def __init__(self,ss,n="Polygon"):
+          Shape.__init__(self,n)
+          self.sides = [float(s) for s in ss]
+
+      def perimeter(self):
+          return sum(self.sides)
+
+  class Triangle(Polygon):
+      def __init__(self,s1=1,s2=1,s3=1,n="Triangle"):
+          Polygon.__init__(self, [s1,s2,s3], n)
+  
+t = Triangle(3,4,5)
+print(t)                 # Line 1
+print(t.perimeter())     # Line 2
+p = Polygon([2,3,2,4])
+print(p)                 # Line 3
+print(p.perimeter())     # Line 4  
+  
+37. What output does Line 1 from Figure 6 produce?
+
+    A) Shape 
+    B) Polygon
+    C) Triangle
+    D) Triangle [3.0,4.0,5.0]
+    E) None of the above
+
+38. What output does Line 2 from Figure 6 produce?
+
+    A) 12
+    B) 12.0
+    C) 60
+    D) None
+    E) None of the above
+
+39. What output does Line 3 from Figure 6 produce?
+
+    A) Shape 
+    B) Polygon
+    C) Triangle
+    D) Polygon [2.0,3.0,2.0,4.0]
+    E) None of the above
+
+40. What output does Line 4 from Figure 6 produce?
+
+    A) 11
+    B) 11.0
+    C) 48
+    D) None
+    E) None of the above

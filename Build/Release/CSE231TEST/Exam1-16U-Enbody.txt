@@ -1,0 +1,608 @@
+
+CSE 231 US'16             Last name (printed):  ________________________________
+
+Exam #1                  First name (printed): ________________________________
+
+Form 1 A                 
+
+
+Directions:
+
+a. DO NOT OPEN YOUR EXAM BOOKLET UNTIL YOU HAVE BEEN TOLD TO BEGIN.
+
+b. This exam booklet contains 40 questions, each of which will be weighted
+equally at 5 points each.  The total points for the exam is 200 points.
+
+c. You may use one 8.5" x 11" note sheet during the exam.  No other reference
+materials or electronic devices may be used during the examination, i.e. no
+calculators, cell phones, mp3 players, etc. Paper dictionaries are allowed.
+
+d. Questions will not be interpreted during the examination.
+
+e. You should choose the single best alternative for each question, even if
+you believe that a question is ambiguous or contains a typographic
+error.  If a question has more than one best answer, credit will be
+given for any of the correct answers.
+
+f. Please fill in the requested information at the top of this exam booklet.
+
+g. Use a #2 pencil to encode any information on the OMR form.
+
+h. Please encode the following on the OMR form:
+
+     -- Last name and first initial
+     -- MSU PID
+     -- Exam form (1 A)
+
+i. Please sign the OMR form.
+
+j. Only answers recorded on your OMR form for multiple choice questions will be 
+counted for credit.  Completely erase any responses on the OMR form that you 
+wish to delete.
+
+k. You must turn in this exam booklet and the OMR form when you have completed
+the exam.  When leaving, please be courteous to those still taking the exam.
+=====================
+Form 1A
+1    2    3    4    5    6    7    8    9    10   11   12   13   14   15
+C    C    B    C    B    AD   CD   C    B    C    B    B    B    A    C
+
+16   17   18   19   20   21   22   23   24   25   26   27   28   29   30
+C    C    A    B    B    C    D    D    C    CD   C    C    B    A    C
+
+31   32   33   34   35   36   37   38   39   40
+D    AD   B    ACD  C    B    E    D    CD   AC
+
+01.  If x = 5 and y = 4, what is x//y?
+
+     A)  0.80
+     B)  0
+     C)  1
+     D)  1.25
+     E)  None of the above.
+
+02.  What is the value returned by 5 != 5 ?
+
+     A)  1
+     B)  0
+     C)  False
+     D)  True
+     E)  None of the above.
+
+03.  What is the value returned by 7 % 3 ?
+
+     A)  0
+     B)  1
+     C)  2
+     D)  3
+     E)  None of the above.
+
+04.  Given a = True, b = False
+     What is returned by (a or b) or (a and b) ?
+
+     A)  0
+     B)  1
+     C)  True
+     D)  False
+     E)  None of the above.
+
+05.  Given x = 0, y = 1, z = -1
+     What is returned by (y and z) or (y and z) ?
+
+     A)  1
+     B)  -1
+     C)  True
+     D)  False
+     E)  None of the above.
+
+06. Which of the following is NOT a legal statement?
+    Assume that s = 'hat'
+
+     A) s[1] = 't'
+     B) x = float(3)
+     C) s = 5.0
+     D) y = s + 2
+     E) None of the above is a legal statement.
+
+07. Approximately how many bytes are in a Petabyte?
+
+   A) 1 trillion bytes
+   B) 1 thousand Exabytes
+   C) 1 thousand Terabytes
+   D) 1 million Gigabytes
+   E) None of the above.
+
+08. Given S = "What is your quest?"
+    What is returned by S[8:11]?
+
+     A) 'your'
+     B) 'our'
+     C) 'you'
+     D) ' yo'
+     E) None of the above.
+
+09. Given S = "What is your quest?"
+    What is returned by S[:2]?
+
+     A) 'W'
+     B) 'Wh'
+     C) ''
+     D) 't?'
+     E) None of the above.
+
+10. Given S = "What is your quest?"
+    What is returned by S[8:-2]?
+
+     A) 'our quest'
+     B) 'your que'
+     C) 'your ques'
+     D) 'our ques'
+     E) None of the above.
+
+11. Given this function:
+  
+  def F(a_str):
+      c = 0
+      for char in a_str:
+          if char in 'abcdefghijklmnopqrstuvwxyz':
+              c += 1
+      return c
+ 
+  What comment best describes what the function F does?
+
+     A) F returns a count of characters in a_str.
+     B) F returns a count of lowercase letters in a_str.
+     C) F returns a count of upper and lowercase letters in a_str.
+     D) F returns a count of letters and digits in a_str.
+     E)  None of the above.
+
+12. In Python when we say that a data structure is immutable,
+    what does that mean?
+
+  A) It can be modified.
+  B) It cannot be modified.
+  C) It can be modified, but with limitations.
+  D) None of the above.
+
+13. What is printed by the following? 
+
+  for i in range(1,5):
+      print(i, end = ' ')
+
+  A) 0 1 2 3
+  B) 1 2 3 4
+  C) 1 2 3
+  D) 0 1 2 3 4
+  E) None of the above.
+
+##############
+#  Figure 1  #
+##############
+
+  if A >= 5:
+      print("X")
+  elif A <= 1:
+      print("Y")
+  else:
+      print("Z")
+
+14.  In Figure 1 what integer values of A will cause "X" to be printed?
+
+     A)   A >= 5
+     B)   1 <= A <= 5
+     C)   A <= 1
+     D)   All integer values of A
+     E)   None of the above.
+
+15.  In Figure 1 what integer values of A will cause "Y" to be printed?
+
+     A)   1 <= A <= 5
+     B)   A >= 5
+     C)   A <= 1
+     D)   All integer values of A
+     E)   None of the above.
+
+16.  In Figure 1 what integer values of A will cause "Z" to be printed?
+
+     A)   A <= 1
+     B)   A >= 5
+     C)   1 < A < 5
+     D)   All integer values of A
+     E)   None of the above.
+
+17. If s = 'lime'
+    how do I make s = 'lite'
+
+     A) s[2] = 't'
+     B) s[-1] = 't'
+     C) s = s[:2] + 't' + s[-1] 
+     D) s = s[1:3] + 'te' 
+     E) None of the above.
+
+18. Which code prints the absolute value of x?
+
+  A) if x<0:
+        print(-1*x)
+     else:
+        print(x)
+  B) if x:
+        print(x)
+     else:
+        print(-1*x)
+  C) if x >= 0:
+        print(-1*x)
+     else:
+        print(x)
+  D) All of the above.
+  E) None of the above.
+
+
+19. Given j = 0
+    how do I print: 1 4 7 10
+
+    A) for i in range(1,5):
+           print(i + j, end = ' ')
+           j = i + j + 1
+
+    B) for i in range(1,5):
+           print(i + j, end = ' ')
+           j = j + 2
+
+    C) for i in range(1,5):
+           print(j + 1, end = ' ')
+	   j = i + j*2 + 1
+
+    D) for i in range(1,5):
+           print(j + 1, end = ' ')
+	   j = i*2 + j + 2
+
+    E) None of the above.
+
+############
+# Figure 2 #
+############
+
+    def F1(x):
+        x = x + 2
+        return x
+    
+    def F2(x):
+        x=5
+    
+    x = 3
+    y = F1(x)
+    print(x)    # Line 1
+    print(y)    # Line 2
+    
+    z = F2(4)
+    print(z)    # Line 3
+    
+20. When the code in Figure 2 is run what is printed by Line 1?
+
+     A) 2
+     B) 3
+     C) 5
+     D) 32
+     E) None of the above.
+
+21. When the code in Figure 2 is run what is printed by Line 2?
+
+     A) 2
+     B) 3
+     C) 5
+     D) 32
+     E) None of the above.
+
+22. When the code in Figure 2 is run what is printed by Line 3?
+
+     A) x
+     B) 4
+     C) 5
+     D) None
+     E) None of the above.
+
+23. A palindrome is a string that is the same forwards and backwards,
+    e.g. civic, radar, and redder.  Which function returns True
+    if s is a palindrome, and False if not? (assume s is lowercase letters)
+
+  A) def P1(s):
+         return s==s[::-1]
+
+  B) def P2(s):
+         if s == s[::-1]:
+             return True
+         else:
+             return False
+
+  C) def P3(s):
+         if s != s[::-1]:
+             return False
+         else:
+             return True
+
+  D) All of the above
+  E) None of the above.
+
+24. What does this statement print?
+       print("Pi:{:>7.3f}".format(math.pi))
+    Note the spacing and right-left justification.
+    Assume: import math
+
+    A) Pi:3.142
+    B) Pi:3.14159
+    C) Pi:  3.142
+    D) Pi:3.1415926
+    E) None of the above.
+
+
+25. Which code prints the first five odd numbers: 1 3 5 7 9
+
+     A) count = 1
+        while count <= 5:
+	    print(count, end = ' ')
+	    count = count + 2
+
+     B) count = 0
+        y = 1
+	while count < 5:
+	    print(y, end = ' ')
+	    y = y + 2
+
+     C) count = 9
+        while count > 0:
+	    print(10 - count, end = ' ')
+	    count = count -2
+
+     D) count = 0
+        while count < 5:
+	    print(2 * count + 1, end = ' ')
+	    count = count + 1
+
+     E) None of the above.
+
+26. What is returned by the call f(5) given
+
+  def f(n):
+      total = 0
+      for i in range(1,n):
+          total += 1//i
+      return total
+       
+     A) 100
+     B) 10
+     C) 1
+     D) 0
+     E) None of the above.
+
+############
+# Figure 3 #
+############
+
+  def f(ch,S):
+      R = ''
+      i = 0
+      for c in S:
+          if c == ch:
+              R+= str(i) + ','
+          i += 1
+      return R[:-1]
+  
+  print(f("s","Mississippi"))   # Line 1
+  
+27. In Figure 3 what is the output of Line 1?
+     
+     A) s,s,s,s
+     B) 2, 5, 8, 11
+     C) 2, 3, 5, 6
+     D) 4
+     E) None of the above.
+
+28. What statement best describes what function "f" in Figure 3 does?
+     
+     A) Returns a count of characters "ch" in string "S"
+     B) Returns a string of indexes of characters "ch" in string "S"
+     C) Returns a string of characters "ch" in string "S"
+     D) Returns a string of each character "ch" found in string "S"
+     E) None of the above.
+
+29. Given S = 'abc'
+    what is the value of: 'a' in S
+
+     A) True
+     B) False
+     C) None of the above.
+
+############
+# Figure 4 #
+############
+  fp1 = open('test.txt','r')
+  S = 0
+  for line in fp1:
+      line = line.strip()
+      if line.isdigit():
+          num = int(line)
+          S += num
+  fp1.close()
+  print(S)               # Line 1
+
+The file test.txt has these four lines
+  4
+  5
+  x
+  7
+
+30. What output is produced by Line 1 of Figure 4?
+   
+   A) 9
+   B) 9x7
+   C) 16
+   D) 21
+   E) None of the above.
+    
+############
+# Figure 5 #
+############
+  fp1 = open('test.txt','r')   # same file 'test.txt' as used for Figure 4
+  S = 0
+  for line in fp1:
+      line = line.strip()
+      if line.isdigit():
+          num = int(line)
+      S += num   # NOTE this line is indented differently than in Figure 4
+  fp1.close()
+  print(S)               # Line 1
+
+31. What output is produced by Line 1 of Figure 5?
+   
+   A) 9
+   B) 9x7
+   C) 16
+   D) 21
+   E) None of the above.
+
+32. Which code writes the result S to a file named out.txt?
+   
+   A) fp2 = open('out.txt','w')
+      print(S,file=fp2)
+      fp2.close()
+   B) fp2 = open('out.txt')
+      print(S,file=fp2)
+      fp2.close()
+   C) fp2 = open('out.txt','w')
+      fp2.write(S)
+      fp2.close()
+   D) fp2 = open('out.txt','w')
+      fp2.write(str(S))
+      fp2.close()
+   E) None of the above.
+
+############
+# Figure 6 #
+############
+  x = input("Input something: ")
+  try:
+      y = int(x)
+      print(y)       # Line 1
+  except:
+      print("oops")  # Line 2
+
+33. What input will print Line 1 in Figure 6?
+
+   A) x
+   B) 4
+   C) '4'
+   D) 3.2
+   E) None of the above
+
+34. What input will print Line 2 in Figure 6?
+
+   A) x
+   B) 4
+   C) '4'
+   D) 3.2
+   E) None of the above
+
+############
+# Figure 7 #
+############
+  def f1(str1, str2):
+      result = ''
+      for ch in str2:
+          if ch in str1:
+              result += ch
+          else:
+              result += "-"
+      return result
+  
+  def f2(str1, str2):
+      return len(str1+str2) <= 6
+  
+  input1 = input("Input first string: ")
+  input2 = input("Input second string: ")
+  
+  print( f1(input1, input2) )  # Line 1
+  print( f2(input1, input2) )  # Line 2
+  print(str1)                  # Line 3
+
+35. In Figure 7 given first input: abcd
+    and second input: axcy
+    what is produced by Line 1?
+
+   A) abcd
+   B) ac
+   C) a-c-
+   D) ---
+   E) None of the above.
+
+36. In Figure 7 given first input: abcd
+    and second input: axcy
+    what is produced by Line 2?
+
+   A) True
+   B) False
+   C) None of the above.
+
+37. In Figure 7 given first input: abcd
+    and second input: axcy
+    what is produced by Line 3?
+
+   A) abcd
+   B) ac
+   C) a-c-
+   D) ---
+   E) None of the above.
+
+38. In Figure 7 given first input: abc
+    and second input: xyz
+    what is produced by Line 1?
+
+   A) abcd
+   B) ac
+   C) a-c-
+   D) ---
+   E) None of the above.
+
+############
+# Figure 8 #
+############
+  0:r 
+  1:u 
+  2:g 
+  3:s 
+123456   # This line is simply to help you count spaces
+
+39. Which code prints the first four lines in Figure 8?
+    Note the spacing and right-left justification.
+
+    A) for x,y in enumerate("rugs"):
+           print("{}:{}".format(x,y))
+
+    B) for x,y in enumerate("rugs"):
+           print("{:<3d}:{:>2s}".format(x,y))
+
+    C) for x,y in enumerate("rugs"):
+           print("{:3d}:{:2s}".format(x,y))
+
+    D) for x,y in enumerate("rugs"):
+           print("{:>3d}:{:<2s}".format(x,y))
+
+    E) None of the above.
+
+40. The generic "while" loop has the following form:
+      
+      while Boolean:
+          statement1
+	  if Boolean: 
+	      continue
+	  if Boolean: 
+	      break
+      else:
+          statement2
+
+    Which statement is true?
+
+     A) If 'break' is executed, statement2 is not executed.
+     B) If 'continue' is executed, the loop is terminated.
+     C) If the loop exits normally, statement2 is executed.
+     D) If 'break' is executed, control returns to the top.
+     E) None of the above

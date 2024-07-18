@@ -1,0 +1,376 @@
+
+CSE 231 FS'12             Last name (printed):  ________________________________
+
+Exam #1                  First name (printed): ________________________________
+
+Form 1 A                 
+
+
+Directions:
+
+a. DO NOT OPEN YOUR EXAM BOOKLET UNTIL YOU HAVE BEEN TOLD TO BEGIN.
+
+b. This exam booklet contains 26 questions, each of which will be weighted
+equally at 5 points each.   A separate 20-point question is on a separate 
+sheet stapled to the booklet.  The total points for the exam is 150 points.
+
+c. You may use one 8.5" x 11" note sheet during the exam.  No other reference
+materials or electronic devices may be used during the examination, i.e. no
+calculators, cell phones, mp3 players, etc. Paper dictionaries are allowed.
+
+d. Questions will not be interpreted during the examination.
+
+e. You should choose the single best alternative for each question, even if
+you believe that a question is ambiguous or contains a typographic
+error.  If a question has more than one best answer, credit will be
+given for any of the correct answers.
+
+f. Please fill in the requested information at the top of this exam booklet.
+
+g. Use a #2 pencil to encode any information on the OMR form.
+
+h. Please encode the following on the OMR form:
+
+     -- Last name and first initial
+     -- MSU PID
+     -- Exam form (1 A)
+
+i. Please sign the OMR form.
+
+j. Only answers recorded on your OMR form for multiple choice questions will be 
+counted for credit.  Completely erase any responses on the OMR form that you 
+wish to delete.
+
+k. You must turn in this exam booklet and the OMR form when you have completed
+the exam.  When leaving, please be courteous to those still taking the exam.
+**********
+Form A
+  1   2   3   4   5   6   7   8   9  10
+  B   D   B   D  BC   C  CD   B   A   B
+
+ 11  12  13  14  15  16  17  18  19  20
+  B   B   D   A   C   C   E   A   A   B
+
+ 21  22  23  24  25  26
+  C   A   B   C  CD  AC
+
+01.  If x = 4 and y = 5, what is x//y?
+
+     A)  0.80
+     B)  0
+     C)  1
+     D)  1.2
+     E)  None of the above.
+
+02.  What is the value returned by 2 != 5 ?
+
+     A)  2
+     B)  0
+     C)  False
+     D)  True
+     E)  None of the above.
+
+03.  What is the value returned by 7 % 2 ?
+
+     A)  0
+     B)  1
+     C)  2
+     D)  3
+     E)  None of the above.
+
+04.  Given a = True, b = False
+     What is returned by (a or b) and (a and b) ?
+
+     A)  0
+     B)  1
+     C)  True
+     D)  False
+     E)  None of the above.
+
+05.  Given x = 0, y = -2, z = 2
+     What is returned by (x and z) or (y and z) ?
+
+     A)  0
+     B)  2
+     C)  True
+     D)  False
+     E)  None of the above.
+
+06.  What is the decimal value of the binary number 101?
+
+     A) 101
+     B) 9
+     C) 5
+     D) 2
+     E) None of the above.
+
+07. Approximately how many bytes are in a Petabyte?
+
+   A) 1 trillion bytes
+   B) 1 thousand Exabytes
+   C) 1 thousand Terabytes
+   D) 1 million Gigabytes
+   E) None of the above.
+
+08. Given S = "What is your quest?"
+    What is returned by S[9:12]?
+
+     A) 'your'
+     B) 'our'
+     C) 'you'
+     D) ' yo'
+     E) None of the above.
+
+09. Given S = "What is your quest?"
+    What is returned by S[:1]?
+
+     A) 'W'
+     B) 'Wh'
+     C) ''
+     D) 't?'
+     E) None of the above.
+
+10. Given S = "What is your quest?"
+    What is returned by S[8:-3]?
+
+     A) 'our quest'
+     B) 'your que'
+     C) 'your ques'
+     D) 'our ques'
+     E) None of the above.
+
+11. Given S = "What is your quest?"
+    What is returned by S[:12:-1]?
+ 
+     A) 'quest?'
+     B) '?tseuq'
+     C) 'i tahW'
+     D) 'What i'
+     E)  None of the above.
+
+12. In Python when we say that a data structure is immutable,
+    what does that mean?
+
+  A) It can be modified.
+  B) It cannot be modified.
+  C) It can be modified, but with limitations.
+  D) None of the above.
+
+13. What is printed by the following? 
+
+  for i in range(5):
+      print(i, end = ' ')
+
+  A) 0 1 2 3
+  B) 1 2 3 4
+  C) 1 2 3
+  D) 0 1 2 3 4
+  E) None of the above.
+
+##############
+#  Figure 1  #
+##############
+
+  if A >= 5:
+      print("X")
+  elif A <= 1:
+      print("Y")
+  else:
+      print("Z")
+
+14.  In Figure 1 what integer values of A will cause "X" to be printed?
+
+     A)   A >= 5
+     B)   1 <= A <= 5
+     C)   A <= 1
+     D)   All integer values of A
+     E)   None of the above.
+
+15.  In Figure 1 what integer values of A will cause "Y" to be printed?
+
+     A)   1 <= A <= 5
+     B)   A >= 5
+     C)   A <= 1
+     D)   All integer values of A
+     E)   None of the above.
+
+16.  In Figure 1 what integer values of A will cause "Z" to be printed?
+
+     A)   A <= 1
+     B)   A >= 5
+     C)   1 < A < 5
+     D)   All integer values of A
+     E)   None of the above.
+
+17. If s = 'spam'
+    how do I make s = 'spat'
+
+     A) s[3] = 't'
+     B) s[-1] = 't'
+     C) s = s[:2] + 't' 
+     D) s = s[1:3] + 't' 
+     E) None of the above.
+
+18. Which code prints the absolute value of x?
+
+  A) if x<0:
+        print(-x)
+     else:
+        print(x)
+  B) if x:
+        print(x)
+     else:
+        print(-x)
+  C) if x >= 0:
+        print(-x)
+     else:
+        print(x)
+  D) All of the above.
+  E) None of the above.
+
+
+19. Given j = 0
+    how do I print: 1 4 7 10
+
+    A) for i in range(1,5):
+            print(i + j, end = ' ')
+	    j = j + 2
+
+    B) for i in range(1,5):
+            print(i + j, end = ' ')
+	    j = i + j + 1
+
+    C) for i in range(1,5):
+            print(j + 1, end = ' ')
+	    j = i + j*2 + 1
+
+    D) for i in range(1,5):
+            print(j + 1, end = ' ')
+	    j = i*2 + j + 2
+
+############
+# Figure 2 #
+
+   def F1(a):
+       a = a + 2
+       return a
+   
+   def F2(b):
+       if b > 0:
+           return True
+       else:
+           return False
+   
+   x = 3
+   y = F1(x)
+   print(x)    # Line 1
+   print(y)    # Line 2
+   
+   n = 2
+   r = F2(n)
+   print(r)    # Line 3
+       
+20. When the code in Figure 2 is run what is printed by Line 1?
+
+     A) 2
+     B) 3
+     C) 5
+     D) None
+     E) None of the above.
+
+21. When the code in Figure 2 is run what is printed by Line 2?
+
+     A) 2
+     B) 3
+     C) 5
+     D) None
+     E) None of the above.
+
+22. When the code in Figure 2 is run what is printed by Line 3?
+
+     A) True
+     B) False
+     C) 1
+     D) 0
+     E) None of the above.
+
+############
+# Figure 3 #
+############
+
+0  : h
+1  : e
+2  : l
+3  : p 
+
+23. Which code prints the four lines in Figure 3?
+    Note the spacing and right-left justification.
+
+    A) for x,y in enumerate("help"):
+           print("{}:{}".format(x,y))
+
+    B) for x,y in enumerate("help"):
+           print("{:<3d}:{:>2s}".format(x,y))
+
+    C) for x,y in enumerate("help"):
+           print("{:3d}:{:2s}".format(x,y))
+
+    D) for x,y in enumerate("help"):
+           print("{:>3d}:{:<2s}".format(x,y))
+
+    E) None of the above.
+
+24. What does this statement print?
+       print("Pi:{:7.3f}".format(math.pi))
+    Note the spacing and right-left justification.
+    Assume: import math
+
+    A) Pi:3.142
+    B) Pi:3.14159
+    C) Pi:  3.142
+    D) Pi:3.1415926
+    E) None of the above.
+
+25. Which code prints the first five odd numbers: 1,3,5,7,9
+
+     A) count = 1
+        while count <= 5:
+	    print(count, end = ' ')
+	    count = count + 2
+
+     B) count = 0
+        y = 1
+	while count < 5:
+	    print(y, end = ' ')
+	    y = y + 2
+
+     C) count = 9
+        while count > 0:
+	    print(10 - count, end = ' ')
+	    count = count -2
+
+     D) count = 0
+        while count < 5:
+	    print(2 * count + 1, end = ' ')
+	    count = count + 1
+
+     E) None of the above.
+
+26. The generic "while" loop has the following form:
+      
+      while Boolean:
+          statement1
+	  if Boolean: 
+	      continue
+	  if Boolean: 
+	      break
+      else:
+          statement2
+
+    Which statement is true?
+
+     A) If 'break' is executed, statement2 is not executed.
+     B) If 'continue' is executed, the loop is terminated.
+     C) If the loop exits normally, statement2 is executed.
+     D) If 'break' is executed, control returns to the top.
+     E) None of the above

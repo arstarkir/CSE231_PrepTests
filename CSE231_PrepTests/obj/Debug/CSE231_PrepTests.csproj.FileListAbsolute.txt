@@ -30,4 +30,4 @@ C:\Git\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.exe
 C:\Git\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.pdb
 C:\Git\CSE231_PrepTests\CSE231_PrepTests\bin\Debug\Newtonsoft.Json.dll
 C:\Git\CSE231_PrepTests\CSE231_PrepTests\bin\Debug\Newtonsoft.Json.xml
-C:\Git\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_PrepTests.csproj.CopyComplete
+C:\Git\CSE231_PrepTests\CSE231_PrepTests\obj\Debug\CSE231_P.B441C519.Up2Date
